@@ -7,7 +7,7 @@ const Navbar = () => {
     return (
         <nav className="flex items-center justify-between flex-wrap bg-white p-6">
             <div className="flex items-center flex-shrink-0 px-2 mr-6">
-                <img src={logo} className="w-[100px]" alt="" />
+                <Link to='/'><img src={logo} className="w-[100px]" alt="" /></Link>
             </div>
 
             {/*====== For Mobile===== */}
@@ -27,7 +27,7 @@ const Navbar = () => {
 
                 </div>
                 <div>
-                    <span class="block text-lg mt-4 lg:inline-block lg:mt-0 text-[#1b3e41] mr-4">User</span>
+                    <span class="block text-lg mt-4 lg:inline-block lg:mt-0 text-[#1b3e41] mr-4">No User !</span>
 
                     <Link to='/signin' className='inline-block px-4 py-2 leading-none rounded text-white bg-[#ff634e] hover:text-white hover:bg-[#1b3e41] mt-4 lg:mt-0'>SignIn</Link>
                 </div>
