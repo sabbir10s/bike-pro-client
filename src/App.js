@@ -1,9 +1,24 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Home from './Pages/Home/Home/Home';
+import Inventory from './Pages/Inventory/Inventory/Inventory';
+import SignIn from './Pages/SignIn/SignIn/SignIn';
+import Footer from './Shared/Footer/Footer';
+import Navbar from './Shared/Navbar/Navbar';
+import NotFond from './Shared/NotFound/NotFond';
 
 function App() {
   return (
     <div>
-      <h1>Welcome to Bike Pro</h1>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/inventory' element={<Inventory />} />
+        <Route path='/signin' element={<SignIn />} />
+        <Route path='*' element={<NotFond />} />
+      </Routes>
+      <Footer />
     </div>
   );
 }
