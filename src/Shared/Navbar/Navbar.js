@@ -1,8 +1,12 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
-import logo from "../../image/main logo.png"
+import auth from '../../firebase.init';
+import logo from "../../image/main logo.png";
+import { signOut } from 'firebase/auth';
 
 const Navbar = () => {
+    const [user] = useAuthState(auth);
 
     return (
         <nav className="flex items-center justify-between flex-wrap bg-white p-6">
@@ -27,9 +31,19 @@ const Navbar = () => {
 
                 </div>
                 <div>
-                    <span class="block text-lg mt-4 lg:inline-block lg:mt-0 text-[#1b3e41] mr-4">No User !</span>
+                    {
+                        user ?
+                            <div>
+                                <span class="block text-lg mt-4 lg:inline-block lg:mt-0 text-[#1b3e41] mr-4">{user.displayName}</span>
+                                <Link onClick={() => signOut(auth)} to='/signin' className='inline-block px-4 py-2 leading-none rounded text-white bg-[#1b3e41] hover:text-white hover:bg-[#ff634e] mt-4 lg:mt-0'>Sign Out</Link>
+                            </div>
+                            :
+                            <div>
+                                <span class="block text-lg mt-4 lg:inline-block lg:mt-0 text-[#1b3e41] mr-4">No User !</span>
+                                <Link to='/signin' className='inline-block px-4 py-2 leading-none rounded text-white bg-[#ff634e] hover:text-white hover:bg-[#1b3e41] mt-4 lg:mt-0'>Sign In</Link>
+                            </div>
+                    }
 
-                    <Link to='/signin' className='inline-block px-4 py-2 leading-none rounded text-white bg-[#ff634e] hover:text-white hover:bg-[#1b3e41] mt-4 lg:mt-0'>SignIn</Link>
                 </div>
             </div>
         </nav>
