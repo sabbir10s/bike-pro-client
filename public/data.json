@@ -1,0 +1,82 @@
+[
+    {
+      "_id": "626cf08ad1c6257f5fcda3b5",
+      "product_name": "City Commuter Bike",
+      "quantity": 37,
+      "supplier": "Villarreal Bray",
+      "picture": "https://i.ibb.co/qJ2tb2G/2022-PREMIER-4.jpg",
+      "description": "Highly formed and butted custom tube sets, Machined and relieved headtubes and BB shell, Internal cable routing3D forged seat stay bridge, Flat mount disc with forged dropouts Tapered headtubes"
+    },
+    {
+      "_id": "626cf08a8e181992025c8cfd",
+      "product_name": "Kids Ultralight Mountain Bike",
+      "quantity": 44,
+      "supplier": "Wall Reid",
+      "picture": "https://i.ibb.co/gFyKw7L/2022-PREMIER-20-XC.jpg",
+      "description": "Shimano's 1x7 gearing provides the optimal range of gears with less weight, confusion, and maintenance. Your child only needs to use one grip shifter to change gears easily to focus on having fun."
+    },
+    {
+      "_id": "626cf08ab65be8387b3597cb",
+      "product_name": "Kids Mountain Bike",
+      "quantity": 42,
+      "supplier": "Davenport Hancock",
+      "picture": "https://i.ibb.co/QNDmXdM/4875429.jpg",
+      "description": "With 40mm of travel available, the zoom glides over small trail imperfections with ease, proving comfort to the next generation of rider"
+    },
+    {
+      "_id": "626cf08af61605826ab16f0d",
+      "product_name": "Urban City Bike",
+      "quantity": 48,
+      "supplier": "Lora Henry",
+      "picture": "https://i.ibb.co/CBHztpg/4916950.jpg",
+      "description": "The Path 3 is a premium urban bike designed to take all the road can throw at it. Urban commuting is tough on bikes, and the Path 3 tackles obstacles such as gutters, steps, rocks and roots with ease."
+    },
+    {
+      "_id": "626cf08a3b1632b681599ee1",
+      "product_name": "Hybrid Bike",
+      "quantity": 36,
+      "supplier": "Santos Poole",
+      "picture": "https://i.ibb.co/YB1RQ40/6537157.jpg",
+      "description": "The Polygon Heist X5 is one the most popular hybrid bikes and has been used by thousands of riders around the world ranging from weekend rides around the local fire trails to long-distance touring. Now, in its 6th generation, the Polygon Heist X5. "
+    },
+    {
+      "_id": "626cf08afa10f462421c14e8",
+      "product_name": "Dual Suspension Mountain Bike",
+      "quantity": 34,
+      "supplier": "Kelley Whitaker",
+      "picture": "https://i.ibb.co/ThPhX3n/6537158.jpg",
+      "description": "A Suntour XCM HLO coil fork dampens up the front end of the bike with 120mm of hydraulically damped travel. A Suntour Raidon rear air shock provides the suspension duties out the back. "
+    },
+    {
+      "_id": "626cf08ae959c403d55c82bf",
+      "product_name": "Dual Suspension Mountain Bike",
+      "quantity": 32,
+      "supplier": "Latasha Baldwin",
+      "picture": "https://i.ibb.co/QdnkC9p/Mountain-Bike.jpg",
+      "description": "Shimano Deore 11 speed provides excellent shifting for a bargain. With an 11-51T wide-range cassette, there is no need for more gears up front; simplicity and super reliability are key features of this setup."
+    },
+    {
+      "_id": "626cf08a31edf89492e90ab1",
+      "product_name": "All Mountain eBike",
+      "quantity": 40,
+      "supplier": "Simpson Buckley",
+      "picture": "https://i.ibb.co/VDkbQ4Z/MTBROMO-N7-2022.jpg",
+      "description": "Just because the D7 has less travel than its big travel relatives doesn't mean it isn't up to the challenge when the riding gets wild. A 67-degree head angle provides stability and confidence. "
+    },
+    {
+      "_id": "626cf08a11964ec99d216914",
+      "product_name": "Dual Suspension eBike",
+      "quantity": 33,
+      "supplier": "Camille Roberts",
+      "picture": "https://i.ibb.co/9pmVNh2/MTBROMO-N8-2022.jpg",
+      "description": "Unbeatable performance when the trails get gnarly; 29” wheels deliver inherently optimal rollover and a long contact patch for all the braking, cornering, and climbing traction you desire, while 2.6” wide Schwalbe Super Gravity tires strike the balance of cushion and precision."
+    },
+    {
+      "_id": "626cf08adc0605b0981ce71c",
+      "product_name": "Urban E-Bike",
+      "quantity": 47,
+      "supplier": "Gay Clarke",
+      "picture": "https://i.ibb.co/D4jn6w7/SISKIU-D7-2022.jpg",
+      "description": "The 418 Wh battery is secured directly to the frame with a key lock and is easy to remove to carry with you for charging."
+    }
+  ]

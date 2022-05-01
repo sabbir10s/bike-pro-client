@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import SocialSignIn from '../SocialSignIn/SocialSignIn';
 import Loading from '../../../Shared/Loading/Loading';
 
 const SignIn = () => {
-    const navigate = useNavigate();
     const [
         signInWithEmailAndPassword,
         user,
@@ -14,18 +13,25 @@ const SignIn = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from.pathname || "/";
+
+    if (loading) {
+        <Loading />
+    }
+
+    if (user) {
+        navigate(from, { replace: true });
+    }
+
     const handelSignInWithEmail = event => {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
         signInWithEmailAndPassword(email, password);
     }
-    if (user) {
-        navigate('/')
-    }
-    if (loading) {
-        <Loading />
-    }
+
     return (
 
         <div className='flex justify-center bg-[#1b3e41] h-[85vh]'>

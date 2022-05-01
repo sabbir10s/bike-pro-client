@@ -3,15 +3,19 @@ import googleLogo from "../../../image/Google.png"
 import facebookLogo from "../../../image/Facebook.png"
 import { useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../../../Shared/Loading/Loading';
 
 const SocialSignIn = () => {
     const navigate = useNavigate();
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const [signInWithFacebook, fbUser, fbLoading, fbError] = useSignInWithFacebook(auth);
+
+    const location = useLocation();
+    const from = location.state?.from.pathname || "/";
+
     if (googleUser || fbUser) {
-        navigate('/')
+        navigate(from, { replace: true });
     }
     if (googleLoading || fbLoading) {
         <Loading />
