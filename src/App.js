@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import AddProduct from './Pages/AddNewItem/AddProduct';
 import Home from './Pages/Home/Home/Home';
 import Inventory from './Pages/Inventory/Inventory/Inventory';
 import UpdateInventory from './Pages/Inventory/UpdateInventory/UpdateInventory';
@@ -24,6 +25,7 @@ function App() {
         </PrivateRoute>} />
 
         <Route path='/menageinventory' element={<MenageInventory />} />
+        <Route path='/addproduct' element={<AddProduct />} />
         <Route path='/signin' element={<SignIn />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='*' element={<NotFond />} />
