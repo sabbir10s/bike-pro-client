@@ -3,19 +3,20 @@ import { useNavigate } from 'react-router-dom';
 
 const InventoryCart = ({ product }) => {
     console.log(product);
-    const { _id, product_name, quantity, picture, supplier, description } = product;
+    const { _id, product_name, quantity, picture, supplier, price } = product;
     const navigate = useNavigate();
     const handleUpdateStock = () => {
         navigate(`/inventory/${_id}`)
     }
     return (
-        <div className='p-5 border-2 border-[#1b3e41] hover:border-[#ff634e] hover:border-2 rounded-lg'>
+        <div className='p-5 border-2 border-[#1b3e41] hover:border-[#ff634e] hover:border-2 hover:shadow-lg'>
             <img className='w-[250px]' src={picture} alt="" />
-            <p>{product_name}</p>
-            <p>{quantity}</p>
-            <p>{supplier}</p>
-            <p>{description}</p>
-            <button onClick={() => handleUpdateStock(_id)} className='inline-block px-4 py-2 leading-none rounded text-white bg-[#ff634e] hover:text-white hover:bg-[#1b3e41] mt-4 lg:mt-0'>Update Stock</button>
+            <p className='font-bold text-xl text-[#1b3e41] mt-2'>{product_name}</p>
+            <p className='font-medium text-[#ff634e] '>Price: {price}$</p>
+            <p className='text-[#1b3e41] '>Quantity: {quantity}</p>
+            <p className='text-[#1b3e41] '>Supplier Name: {supplier}</p>
+
+            <button onClick={() => handleUpdateStock(_id)} className='px-4 py-2 leading-none text-white bg-[#ff634e] hover:text-white hover:bg-[#1b3e41] mt-2'>Update Stock</button>
         </div>
     );
 };

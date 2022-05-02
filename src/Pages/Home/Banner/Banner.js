@@ -1,31 +1,16 @@
 import React from 'react';
-import imgOne from '../../../image/banner/b1.png'
-import imgTwo from '../../../image/banner/b2.png'
-import imgThree from '../../../image/banner/b3.png'
+import { useNavigate } from 'react-router-dom';
+import "./banner.css"
+
 const Banner = () => {
+    const navigate = useNavigate()
 
     return (
-        <div className="carousel w-full">
-            <div id="slide1" className="carousel-item relative w-full">
-                <img src={imgOne} className="w-[600px] mx-auto" alt='' />
-
-                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <a href="#slide4" className="btn btn-circle">❮</a>
-                    <a href="#slide2" className="btn btn-circle">❯</a>
-                </div>
-            </div>
-            <div id="slide2" className="carousel-item relative w-full">
-                <img src={imgTwo} className="w-[600px] mx-auto" alt='' />
-                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <a href="#slide1" className="btn btn-circle">❮</a>
-                    <a href="#slide3" className="btn btn-circle">❯</a>
-                </div>
-            </div>
-            <div id="slide3" className="carousel-item relative w-full">
-                <img src={imgThree} className="w-[600px] mx-auto" alt='' />
-                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <a href="#slide2" className="btn btn-circle">❮</a>
-                    <a href="#slide4" className="btn btn-circle">❯</a>
+        <div className='banner mb-14'>
+            <div className=" w-full h-[74vh] flex items-center ">
+                <div className='text-white w-[50%] mx-10 z-10'>
+                    <h1 className='text-xl mb-1'>It is by riding a bicycle that you learn the contours of a country best, since you heave to sweat up the hills and can coast down them.</h1>
+                    <button onClick={() => navigate('/menageinventory')} className='px-5 py-3 leading-none text-white text-xl hover:bg-[#f32105] hover:text-white bg-[#ff634e] mt-4'>Manage Inventory</button>
                 </div>
             </div>
         </div>
