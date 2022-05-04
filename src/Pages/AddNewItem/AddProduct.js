@@ -1,4 +1,5 @@
 import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 
 const AddProduct = () => {
     const handleUpload = event => {
@@ -7,12 +8,29 @@ const AddProduct = () => {
         const supplier = event.target.supplier.value;
         const price = event.target.price.value;
         const quantity = event.target.quantity.value;
-        const image = event.target.image.value;
+        const picture = event.target.picture.value;
         const description = event.target.description.value;
+        const product = { product_name, supplier, price, quantity, picture, description };
+
+        const url = "http://localhost:5000/product"
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+            body: JSON.stringify(product),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                event.target.reset();
+                toast('Product Upload Successful');
+            });
+
     }
     return (
         <div className='mx-auto w-[30%] border-2 border-[#ff634e] p-5 shadow-xl'>
-            <form>
+            <form onSubmit={handleUpload}>
                 <h1 className='text-xl py-1 mb-5 text-center text-[#ff634e]'>Add New Product</h1>
                 <div className="relative z-0 w-full mb-6 group">
                     <input type="text" name="product_name" id='product_name' className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-[#ff634e] focus:outline-none focus:ring-0 focus:border-[#ff634e] peer" placeholder='  ' required />
@@ -34,17 +52,17 @@ const AddProduct = () => {
                     </div>
                 </div>
                 <div className="relative z-0 w-full mb-6 group">
-                    <input type="text" name="image" id='image' className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-[#ff634e] focus:outline-none focus:ring-0 focus:border-[#ff634e] peer" placeholder='  ' required />
-                    <label for="image" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#ff634e] peer-focus:dark:text-[#ff634e] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Image</label>
+                    <input type="text" name="picture" id='picture' className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-[#ff634e] focus:outline-none focus:ring-0 focus:border-[#ff634e] peer" placeholder='  ' required />
+                    <label for="picture" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#ff634e] peer-focus:dark:text-[#ff634e] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Picture</label>
                 </div>
 
                 <div className="relative z-0 w-full mb-6 group">
                     <textarea rows="3" type="text" name="description" id="description" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-[#ff634e] focus:outline-none focus:ring-0 focus:border-[#ff634e] peer" placeholder='  ' required />
                     <label for="description" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#ff634e] peer-focus:dark:text-[#ff634e] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Description</label>
                 </div>
-                <button type="submit" className="text-white bg-[#ff634e] hover:bg-[#1b3e41] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm sm:w-auto px-5 py-2 lg:w-[30%] text-center">Upload</button>
+                <input type="submit" className="text-white bg-[#ff634e] hover:bg-[#1b3e41] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm sm:w-auto px-5 py-2 lg:w-[30%] text-center" value="Upload" />
+                <ToastContainer />
             </form>
-
         </div>
     );
 };

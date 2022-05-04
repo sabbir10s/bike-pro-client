@@ -5,10 +5,10 @@ import auth from '../../firebase.init';
 import logo from "../../image/main logo.png";
 import { signOut } from 'firebase/auth';
 import { HiUserCircle } from 'react-icons/hi';
+import CustomLink from '../CustomLink/CustomLink';
 
 const Navbar = () => {
     const [user] = useAuthState(auth);
-    console.log(user);
     return (
         <nav className="flex items-center justify-between flex-wrap bg-white p-6">
             <div className="flex items-center flex-shrink-0 px-2 mr-6">
@@ -24,11 +24,23 @@ const Navbar = () => {
             {/* ========================*/}
 
             <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-                <div className="text-sm lg:flex-grow">
+                <div className="text-sm lg:flex-grow lg:flex lg:items-center ">
 
-                    <Link to="/home" className="block mt-4 font-medium lg:inline-block lg:mt-0 text-[#1b3e41] hover:text-[#ff634e] text-lg mr-4"> Home</Link>
+                    <CustomLink to="/home" className="block mt-4 font-medium lg:inline-block lg:mt-0 text-[#1b3e41] hover:text-[#ff634e] text-lg mr-4"> Home</CustomLink>
 
-                    <Link to="/inventory" className="block mt-4 font-medium lg:inline-block lg:mt-0 text-[#1b3e41] hover:text-[#ff634e] text-lg mr-4">Inventory</Link>
+                    <CustomLink to="/inventory" className="block mt-4 font-medium lg:inline-block lg:mt-0 text-[#1b3e41] hover:text-[#ff634e] text-lg mr-4">Inventory</CustomLink>
+
+                    {
+                        user ?
+                            <>
+                                <CustomLink to="/menageinventory" className="block mt-4 font-medium lg:inline-block lg:mt-0 text-[#1b3e41] hover:text-[#ff634e] text-lg mr-4">Menage</CustomLink>
+
+                                <CustomLink to="/addproduct" className="block mt-4 font-medium lg:inline-block lg:mt-0 text-[#1b3e41] hover:text-[#ff634e] text-lg mr-4">Add-New</CustomLink>
+
+                                <CustomLink to="/myproduct" className="block mt-4 font-medium lg:inline-block lg:mt-0 text-[#1b3e41] hover:text-[#ff634e] text-lg mr-4">My-Product</CustomLink>
+                            </>
+                            : ""
+                    }
 
                 </div>
                 <div>
