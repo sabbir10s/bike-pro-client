@@ -12,7 +12,7 @@ const Home = () => {
     const [products] = useProducts([])
     const navigate = useNavigate()
     return (
-        <div>
+        <div className=''>
             <Banner></Banner>
             <div className=''>
                 <div className='mb-10'>
@@ -21,7 +21,7 @@ const Home = () => {
                     {/* <h1 className='text-center text-xl text-gray-500 mb-5 tracking-wider'>Best product</h1> */}
                 </div>
                 <div className='mx-10'>
-                    <div className='grid grid-cols-3 gap-12'>
+                    <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-12'>
                         {
                             products.slice(3, 9).map(product =>
                                 <InventoryCart product={product} key={product._id}></InventoryCart>)

@@ -17,22 +17,26 @@ const Supplier = () => {
                 <div className='h-[3px] w-[200px] mx-auto my-2 bg-[#ff634e]'></div>
                 <h1 className='text-center text-xl text-gray-500 tracking-wider'>All of my product suppliers</h1>
             </div>
-            <div className='flex justify-center items-center gap-10'>
+            <div className='flex items-center justify-center'>
                 <div className='w-[3px] h-[150px] bg-[#ff634e]'></div>
-                {
-                    suppliers.map(supplier =>
-                        <div className='bg-white shadow-2xl rounded border hover:bg-slate-200 p-8'>
-                            <img className='w-[200px] h-[200px] rounded-full border border-[#ff634e] mb-3' src={supplier.picture} alt="" />
-                            <p>{supplier.name}</p>
-                            <address>{supplier.address}</address>
-                            <div className='flex gap-5 mt-3'>
-                                <button className='hover:text-[#ff634e] text-[#1b3e41] text-xl'><BsFacebook /></button>
-                                <button className='hover:text-[#ff634e] text-[#1b3e41] text-xl'><FaTwitter /></button>
-                                <button className='hover:text-[#ff634e] text-[#1b3e41] text-xl'><AiFillInstagram /></button>
+                <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols gap-10'>
+
+                    {
+                        suppliers.map(supplier =>
+                            <div className='bg-white shadow-2xl rounded border hover:bg-slate-200 p-8'>
+                                <img className='w-[200px] h-[200px] rounded-full border border-[#ff634e] mb-3' src={supplier.picture} alt="" />
+                                <p>{supplier.name}</p>
+                                <address>{supplier.address}</address>
+                                <div className='flex gap-5 mt-3'>
+                                    <button className='hover:text-[#ff634e] text-[#1b3e41] text-xl'><BsFacebook /></button>
+                                    <button className='hover:text-[#ff634e] text-[#1b3e41] text-xl'><FaTwitter /></button>
+                                    <button className='hover:text-[#ff634e] text-[#1b3e41] text-xl'><AiFillInstagram /></button>
+                                </div>
                             </div>
-                        </div>
-                    )
-                }
+                        )
+                    }
+
+                </div>
                 <div className='w-[3px] h-[150px] bg-[#ff634e]'></div>
             </div>
         </div>

@@ -16,7 +16,7 @@ const AddProduct = () => {
         const description = event.target.description.value;
         const product = { email, product_name, supplier, price, quantity, picture, description };
 
-        const url = "http://localhost:5000/product"
+        const url = "https://lit-shelf-23459.herokuapp.com/product"
 
         fetch(url, {
             method: 'POST',

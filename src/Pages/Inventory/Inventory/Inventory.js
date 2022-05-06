@@ -6,7 +6,7 @@ const Inventory = () => {
     const [products] = useProducts([]);
 
     return (
-        <div className='flex justify-center  m-5'>
+        <div className='mx-10 mb-10'>
             <div className='grid grid-cols-3 gap-10'>
                 {
                     products.map(product =>
