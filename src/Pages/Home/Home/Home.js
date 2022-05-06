@@ -5,6 +5,8 @@ import InventoryCart from '../../Inventory/InventoryCart/InventoryCart';
 import Banner from '../Banner/Banner';
 import Supplier from '../Suppliers/Supplier';
 import { AiOutlineArrowRight } from 'react-icons/ai';
+import Brands from '../Brands/Brands';
+
 
 const Home = () => {
     const [products] = useProducts([])
@@ -29,6 +31,7 @@ const Home = () => {
                 </div>
             </div>
             <Supplier />
+            <Brands />
         </div>
     );
 };
