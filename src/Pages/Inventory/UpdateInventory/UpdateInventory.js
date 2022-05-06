@@ -11,10 +11,26 @@ const UpdateInventory = () => {
             .then(data => setProduct(data))
     }, [])
 
+
     const handelIncreaseQuantity = event => {
         event.preventDefault();
-        const quantity = event.target.quantity.value;
-        console.log(quantity);
+        const inputQuantity = event.target.quantity.value;
+        const updateQuantity = parseInt(inputQuantity) + product.quantity;
+
+        const { product_name, picture, supplier, price } = product;
+
+        fetch(`http://localhost:5000/product/${productId}`, {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ updateQuantity, product_name, picture, supplier, price })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log("Success", data);
+                event.target.reset();
+            })
     }
     return (
         <div className='flex justify-center'>

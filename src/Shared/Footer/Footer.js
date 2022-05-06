@@ -6,7 +6,7 @@ import { AiFillInstagram } from 'react-icons/ai';
 
 const Footer = () => {
     return (
-        <div className='bg-[#2a2a2a] mt-10 py-10'>
+        <div className='bg-[#2a2a2a] py-10'>
             <div className='mx-10'>
                 <img src={logo} className="w-[120px]" alt="" />
                 <div className='h-[0.5px] bg-gray-400 mb-1'></div>

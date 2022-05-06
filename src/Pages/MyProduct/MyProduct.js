@@ -13,6 +13,7 @@ const MyProduct = () => {
             .then(res => res.json())
             .then(data => setMyProducts(data))
     }, [user])
+
     console.log(myProducts);
     const handleDelete = id => {
         const proceed = window.confirm("Are you sure? ")
@@ -29,11 +30,11 @@ const MyProduct = () => {
         }
     }
     return (
-        <div>
+        <div className='h-[70vh]'>
             <p className='text-2xl text-center mb-3'>My Product List</p>
             {
                 myProducts.map(product => <div className='w-[50%] mx-auto'>
-                    <table className='w-full'>
+                    <table className='w-full mb-3'>
                         <tr className='border border-[#ff634e]'>
                             <td className='py-5 px-2 w-[15%]'><img className='w-[50px] mx-auto' src={product.picture} alt="" /></td>
                             <td className=' py-5 px-2 '><p>{product.product_name}</p></td>
