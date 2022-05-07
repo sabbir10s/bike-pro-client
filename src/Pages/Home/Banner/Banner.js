@@ -7,7 +7,7 @@ const Banner = () => {
     const navigate = useNavigate()
 
     return (
-        <div className='banner mb-14 hero'>
+        <div className='banner mb-14'>
             <div className="w-full h-[74vh] flex items-center ">
                 <div className='text-white w-[50%] mx-10 z-10'>
                     <h1 className='text-xl mb-1'>It is by riding a bicycle that you learn the contours of a country best, since you heave to sweat up the hills and can coast down them.</h1>

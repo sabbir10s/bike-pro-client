@@ -34,7 +34,7 @@ const SignIn = () => {
 
     return (
 
-        <div className='flex justify-center bg-[#1b3e41] h-[85vh]'>
+        <div className='flex justify-center bg-[#1b3e41]'>
             <div className='w-[300px] p-5 my-12 bg-white'>
                 <form onSubmit={handelSignInWithEmail}>
                     <span className='text-[#ff634e]  text-3xl'>Sign In</span>

@@ -9,7 +9,7 @@ const InventoryCart = ({ product }) => {
     }
     return (
         <div className='p-5 border hover:border-[#ff634e] hover:border shadow-md hover:shadow-xl rounded-xl'>
-            <div className='w-[300px]'>
+            <div className=''>
                 <div>
                     <img className='w-[250px]' src={picture} alt="" />
                     <p className='font-bold text-xl text-[#1b3e41] mt-3'>{product_name}</p>

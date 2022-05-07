@@ -18,7 +18,7 @@ const Supplier = () => {
                 <h1 className='text-center text-xl text-gray-500 tracking-wider'>All of my product suppliers</h1>
             </div>
             <div className='flex items-center justify-center'>
-                <div className='w-[3px] h-[150px] bg-[#ff634e]'></div>
+                <div className='w-[3px] h-[150px] hidden lg:block bg-[#ff634e]'></div>
                 <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols gap-10'>
 
                     {
@@ -37,7 +37,7 @@ const Supplier = () => {
                     }
 
                 </div>
-                <div className='w-[3px] h-[150px] bg-[#ff634e]'></div>
+                <div className='w-[3px] h-[150px] hidden lg:block bg-[#ff634e]'></div>
             </div>
         </div>
     );

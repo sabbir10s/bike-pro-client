@@ -30,8 +30,8 @@ const SignUp = () => {
 
     return (
 
-        <div className='flex justify-center items-center bg-[#1b3e41] h-[85vh]'>
-            <div className='w-[300px] p-5 bg-white'>
+        <div className='flex justify-center items-center bg-[#1b3e41]'>
+            <div className='w-[300px] p-5 my-6 bg-white'>
                 <form onSubmit={creatUser}>
                     <span className='text-[#ff634e]  text-3xl'>Sign Up</span>
                     <input className='w-full border border-[#ff634e] mt-4 p-2 text-1xl' type="text" name='name' placeholder='Your Name' required />

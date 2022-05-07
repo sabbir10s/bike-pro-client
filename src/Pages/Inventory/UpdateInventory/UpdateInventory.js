@@ -49,19 +49,19 @@ const UpdateInventory = () => {
     }
     return (
         <div className='flex justify-center mb-10'>
-            <div className='w-[50%]'>
+            <div className='w-full mx-10 lg:w-[50%]'>
                 <img className='w-[350px] mx-auto' src={product.picture} alt="" />
                 <p className='text-[#ff634e] mt-2 font-semibold text-3xl'>{product.product_name}</p>
                 <p className='font-semibold text-lg text-gray-500'>Supplier - {product.supplier}</p>
                 <p className='text-[#ff634e] mt-2 font-semibold'>Price: {product.price}</p>
                 <p className='text-justify text-gray-500'>{product.description}</p>
 
-                <div className='flex gap-4 mt-2'>
-                    <div className='border p-3 w-[50%] shadow-lg'>
+                <div className='flex flex-col lg:flex-row md:flex-row gap-4 mt-2'>
+                    <div className='border p-3 w-[100%] lg:w-[50%] md:w-[50%] shadow-lg'>
                         <p className='font-semibold text-[#ff634e] text-lg mt-1'>Product Quantity: {product.quantity}</p>
                         <button onClick={handelDelivered} className='px-4 py-2 leading-none text-white bg-[#ff634e] hover:text-white hover:bg-[#1b3e41] mt-4 w-full'>Delivered One</button>
                     </div>
-                    <div className='border p-3  w-[50%] shadow-lg'>
+                    <div className='border p-3  w-[100%] lg:w-[50%] md:w-[50%] shadow-lg'>
                         <form onSubmit={handelIncreaseQuantity}>
                             <input className='w-full block border-2 p-1 border-[#ff634e]' type="number" name='quantity' required placeholder='Restock the Product' />
                             <input className='w-full px-4 py-2 leading-none text-white bg-[#ff634e] hover:text-white hover:bg-[#1b3e41] mt-3' type="submit" value="Increase Quantity" />

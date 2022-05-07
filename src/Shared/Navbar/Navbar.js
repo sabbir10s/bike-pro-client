@@ -1,69 +1,185 @@
-import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
-import auth from '../../firebase.init';
+import { Fragment } from 'react'
+import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import { Link } from 'react-router-dom'
 import logo from "../../image/main logo.png";
-import { signOut } from 'firebase/auth';
+import auth from '../../firebase.init'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import CustomLink from '../CustomLink/CustomLink'
 import { HiUserCircle } from 'react-icons/hi';
-import CustomLink from '../CustomLink/CustomLink';
+import { signOut } from 'firebase/auth';
 
-const Navbar = () => {
+
+function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+}
+
+export default function Navbar() {
+
     const [user] = useAuthState(auth);
     return (
-        <nav className="flex items-center justify-between flex-wrap bg-white p-6">
-            <div className="flex items-center flex-shrink-0 px-2 mr-6">
-                <Link to='/'><img src={logo} className="w-[100px]" alt="" /></Link>
-            </div>
-
-            {/*====== For Mobile===== */}
-            <div className="block lg:hidden">
-                <button className="flex items-center px-3 py-2 border rounded text-teal-500 border-teal-400  hover:border-white">
-                    <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /></svg>
-                </button>
-            </div>
-            {/* ========================*/}
-
-            <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-                <div className="text-sm lg:flex-grow lg:flex lg:items-center ">
-
-                    <CustomLink to="/home" className="block mt-4 font-medium lg:inline-block lg:mt-0 text-[#1b3e41] hover:text-[#ff634e] text-lg mr-10"> Home</CustomLink>
-
-                    <CustomLink to="/inventory" className="block mt-4 font-medium lg:inline-block lg:mt-0 text-[#1b3e41] hover:text-[#ff634e] text-lg mr-10">Inventory</CustomLink>
-
-                    {
-                        user ?
-                            <>
-                                <CustomLink to="/menageinventory" className="block mt-4 font-medium lg:inline-block lg:mt-0 text-[#1b3e41] hover:text-[#ff634e] text-lg mr-10">Menage</CustomLink>
-
-                                <CustomLink to="/addproduct" className="block mt-4 font-medium lg:inline-block lg:mt-0 text-[#1b3e41] hover:text-[#ff634e] text-lg mr-10">Add-New</CustomLink>
-
-                                <CustomLink to="/myproduct" className="block mt-4 font-medium lg:inline-block lg:mt-0 text-[#1b3e41] hover:text-[#ff634e] text-lg mr-10">My-Product</CustomLink>
-                            </>
-                            : ""
-                    }
-
-                    <CustomLink to="/blogs" className="block mt-4 font-medium lg:inline-block lg:mt-0 text-[#1b3e41] hover:text-[#ff634e] text-lg mr-10">Blogs</CustomLink>
-
-
-                </div>
-                <div>
-                    {
-                        user ?
-                            <div className='flex items-center'>
-                                <span class="block text-lg mt-4 lg:inline-block lg:mt-0 text-[#1b3e41] mr-4"><img className='rounded-full w-[30px]' src={user?.photoURL} alt="" /></span>
-                                <Link onClick={() => signOut(auth)} to='/signin' className='inline-block rounded px-4 py-2 leading-none text-white bg-[#1b3e41] hover:text-white hover:bg-[#ff634e] mt-4 lg:mt-0'>Sign Out</Link>
+        <Disclosure as="nav" className="bg-white py-5">
+            {({ open }) => (
+                <>
+                    <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+                        <div className="relative flex items-center justify-between h-16">
+                            <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                                {/* Mobile menu button*/}
+                                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                                    <span className="sr-only">Open main menu</span>
+                                    {open ? (
+                                        <XIcon className="block h-6 w-6" aria-hidden="true" />
+                                    ) : (
+                                        <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                                    )}
+                                </Disclosure.Button>
                             </div>
-                            :
-                            <div className='flex items-center'>
-                                <span class="block mt-4 lg:inline-block lg:mt-0 text-[#1b3e41] mr-4 text-3xl"><HiUserCircle /></span>
-                                <Link to='/signin' className='inline-block rounded px-4 py-2 leading-none text-white bg-[#ff634e] hover:text-white hover:bg-[#1b3e41] mt-4 lg:mt-0'>Sign In</Link>
+                            <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                                <div className="flex-shrink-0 flex items-center">
+                                    <Link to='/'><img
+                                        className="block lg:hidden h-8 w-auto"
+                                        src={logo}
+                                        alt="Workflow"
+                                    /></Link>
+                                    <Link to='/'>
+                                        <img
+                                            className="hidden lg:block h-8 w-auto"
+                                            src={logo}
+                                            alt="Workflow"
+                                        />
+                                    </Link>
+                                </div>
+                                <div className="hidden sm:block sm:ml-6">
+                                    <div className="flex space-x-4">
+                                        <CustomLink
+                                            to="/home"
+                                            className='block px-4 py-2 text-sm text-gray-700'
+                                        >
+                                            Home
+                                        </CustomLink>
+                                        <CustomLink
+                                            to="/inventory"
+                                            className='block px-4 py-2 text-sm text-gray-700'
+                                        >
+                                            All Products
+                                        </CustomLink>
+                                    </div>
+                                </div>
                             </div>
-                    }
+                            <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                                {/* Profile dropdown */}
+                                <Menu as="div" className="ml-3 relative">
+                                    <div>
+                                        {
+                                            user ?
+                                                <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                                                    <span className="sr-only">Open user menu</span>
+                                                    <img
+                                                        className="h-8 w-8 rounded-full"
+                                                        src={user?.photoURL}
+                                                        alt=""
+                                                    />
+                                                </Menu.Button>
+                                                :
+                                                <Menu.Button className="text-4xl flex rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                                                    <span className="sr-only">Open user menu</span>
+                                                    <HiUserCircle />
+                                                </Menu.Button>
+                                        }
+                                    </div>
+                                    <Transition
+                                        as={Fragment}
+                                        enter="transition ease-out duration-100"
+                                        enterFrom="transform opacity-0 scale-95"
+                                        enterTo="transform opacity-100 scale-100"
+                                        leave="transition ease-in duration-75"
+                                        leaveFrom="transform opacity-100 scale-100"
+                                        leaveTo="transform opacity-0 scale-95"
+                                    >
+                                        <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                            {
+                                                user ?
+                                                    <Menu.Item>
+                                                        {({ active }) => (
+                                                            <CustomLink
+                                                                to="/addproduct"
+                                                                className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                                                            >
+                                                                Add New Product
+                                                            </CustomLink>
+                                                        )}
+                                                    </Menu.Item>
+                                                    :
+                                                    ""
+                                            }
+                                            {
+                                                user ?
+                                                    <Menu.Item>
+                                                        {({ active }) => (
+                                                            <CustomLink
+                                                                to="/myproduct"
+                                                                className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                                                            >
+                                                                My Products
+                                                            </CustomLink>
+                                                        )}
+                                                    </Menu.Item>
+                                                    :
+                                                    ""
+                                            }
+                                            {
+                                                user ?
+                                                    <Menu.Item>
+                                                        {({ active }) => (
+                                                            <button
+                                                                onClick={() => signOut(auth)}
+                                                                className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                                                            >
+                                                                Sign out
+                                                            </button>
 
-                </div>
-            </div>
-        </nav>
-    );
-};
+                                                        )}
+                                                    </Menu.Item>
+                                                    :
+                                                    <Menu.Item>
+                                                        {({ active }) => (
+                                                            <Link
+                                                                to='/signin'
+                                                                className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                                                            >
+                                                                Sign In
+                                                            </Link>
 
-export default Navbar;
+                                                        )}
+                                                    </Menu.Item>
+                                            }
+                                        </Menu.Items>
+                                    </Transition>
+                                </Menu>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <Disclosure.Panel className="sm:hidden">
+                        <div className="px-2 pt-2 pb-3 space-y-1">
+                            <CustomLink
+                                to="/home"
+                                className='block px-4 py-2 text-sm text-gray-700'
+                            >
+                                Home
+                            </CustomLink>
+                            <CustomLink
+                                to="/inventory"
+                                className='block px-4 py-2 text-sm text-gray-700'
+                            >
+                                All Products
+                            </CustomLink>
+                        </div>
+                    </Disclosure.Panel>
+
+                </>
+            )}
+        </Disclosure>
+    )
+}
