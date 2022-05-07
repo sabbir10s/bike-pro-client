@@ -26,21 +26,24 @@ const Navbar = () => {
             <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
                 <div className="text-sm lg:flex-grow lg:flex lg:items-center ">
 
-                    <CustomLink to="/home" className="block mt-4 font-medium lg:inline-block lg:mt-0 text-[#1b3e41] hover:text-[#ff634e] text-lg mr-4"> Home</CustomLink>
+                    <CustomLink to="/home" className="block mt-4 font-medium lg:inline-block lg:mt-0 text-[#1b3e41] hover:text-[#ff634e] text-lg mr-10"> Home</CustomLink>
 
-                    <CustomLink to="/inventory" className="block mt-4 font-medium lg:inline-block lg:mt-0 text-[#1b3e41] hover:text-[#ff634e] text-lg mr-4">Inventory</CustomLink>
+                    <CustomLink to="/inventory" className="block mt-4 font-medium lg:inline-block lg:mt-0 text-[#1b3e41] hover:text-[#ff634e] text-lg mr-10">Inventory</CustomLink>
 
                     {
                         user ?
                             <>
-                                <CustomLink to="/menageinventory" className="block mt-4 font-medium lg:inline-block lg:mt-0 text-[#1b3e41] hover:text-[#ff634e] text-lg mr-4">Menage</CustomLink>
+                                <CustomLink to="/menageinventory" className="block mt-4 font-medium lg:inline-block lg:mt-0 text-[#1b3e41] hover:text-[#ff634e] text-lg mr-10">Menage</CustomLink>
 
-                                <CustomLink to="/addproduct" className="block mt-4 font-medium lg:inline-block lg:mt-0 text-[#1b3e41] hover:text-[#ff634e] text-lg mr-4">Add-New</CustomLink>
+                                <CustomLink to="/addproduct" className="block mt-4 font-medium lg:inline-block lg:mt-0 text-[#1b3e41] hover:text-[#ff634e] text-lg mr-10">Add-New</CustomLink>
 
-                                <CustomLink to="/myproduct" className="block mt-4 font-medium lg:inline-block lg:mt-0 text-[#1b3e41] hover:text-[#ff634e] text-lg mr-4">My-Product</CustomLink>
+                                <CustomLink to="/myproduct" className="block mt-4 font-medium lg:inline-block lg:mt-0 text-[#1b3e41] hover:text-[#ff634e] text-lg mr-10">My-Product</CustomLink>
                             </>
                             : ""
                     }
+
+                    <CustomLink to="/blogs" className="block mt-4 font-medium lg:inline-block lg:mt-0 text-[#1b3e41] hover:text-[#ff634e] text-lg mr-10">Blogs</CustomLink>
+
 
                 </div>
                 <div>
