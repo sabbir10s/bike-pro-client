@@ -63,6 +63,12 @@ export default function Navbar() {
                                         >
                                             All Products
                                         </CustomLink>
+                                        <CustomLink
+                                            to="/menageinventory"
+                                            className='block px-4 py-2 text-sm text-gray-700'
+                                        >
+                                            Menage Products
+                                        </CustomLink>
                                     </div>
                                 </div>
                             </div>
@@ -175,6 +181,17 @@ export default function Navbar() {
                             >
                                 All Products
                             </CustomLink>
+                            {
+                                user ?
+                                    <CustomLink
+                                        to="/menageinventory"
+                                        className='block px-4 py-2 text-sm text-gray-700'
+                                    >
+                                        Menage Products
+                                    </CustomLink>
+                                    :
+                                    ""
+                            }
                         </div>
                     </Disclosure.Panel>
 

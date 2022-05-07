@@ -25,15 +25,19 @@ function App() {
         <Route path='/inventory/:productId' element={<PrivateRoute>
           <UpdateInventory />
         </PrivateRoute>} />
+
         <Route path='/menageinventory' element={<PrivateRoute>
           <MenageInventory />
         </PrivateRoute>} />
+
         <Route path='/addproduct' element={<PrivateRoute>
           <AddProduct />
         </PrivateRoute>} />
+
         <Route path='/myproduct' element={<PrivateRoute>
           <MyProduct />
         </PrivateRoute>} />
+
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/signin' element={<SignIn />} />
         <Route path='/signup' element={<SignUp />} />
