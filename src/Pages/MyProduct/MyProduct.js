@@ -4,21 +4,32 @@ import auth from '../../firebase.init';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import Loading from '../../Shared/Loading/Loading';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
 
 const MyProduct = () => {
     const [user] = useAuthState(auth);
     const [myProducts, setMyProducts] = useState([]);
-
+    const navigate = useNavigate();
     useEffect(() => {
         const getProducts = async () => {
             const email = user.email;
-            const url = `http://localhost:5000/myproduct?email=${email}`
-            const { data } = await axios.get(url, {
-                headers: {
-                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            const url = `https://lit-shelf-23459.herokuapp.com/myproduct?email=${email}`
+            try {
+                const { data } = await axios.get(url, {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                    }
+                })
+                setMyProducts(data)
+            }
+            catch (error) {
+                console.log(error.message);
+                if (error.response.status === 401 || error.response.status === 403) {
+                    signOut(auth)
+                    navigate('/signIn')
                 }
-            })
-            setMyProducts(data)
+            }
         }
         getProducts();
     }, [user])
@@ -26,7 +37,7 @@ const MyProduct = () => {
     const handleDelete = id => {
         const proceed = window.confirm("Are you sure? ")
         if (proceed) {
-            const url = `http://localhost:5000/product/${id}`
+            const url = `https://lit-shelf-23459.herokuapp.com/product/${id}`
             fetch(url, {
                 method: "DELETE"
             })
