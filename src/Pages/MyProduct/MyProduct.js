@@ -3,22 +3,30 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import Loading from '../../Shared/Loading/Loading';
+import axios from 'axios';
 
 const MyProduct = () => {
     const [user] = useAuthState(auth);
     const [myProducts, setMyProducts] = useState([]);
 
     useEffect(() => {
-        const email = user.email;
-        fetch(`https://lit-shelf-23459.herokuapp.com/myproduct?email=${email}`)
-            .then(res => res.json())
-            .then(data => setMyProducts(data))
+        const getProducts = async () => {
+            const email = user.email;
+            const url = `http://localhost:5000/myproduct?email=${email}`
+            const { data } = await axios.get(url, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+            setMyProducts(data)
+        }
+        getProducts();
     }, [user])
 
     const handleDelete = id => {
         const proceed = window.confirm("Are you sure? ")
         if (proceed) {
-            const url = `https://lit-shelf-23459.herokuapp.com/product/${id}`
+            const url = `http://localhost:5000/product/${id}`
             fetch(url, {
                 method: "DELETE"
             })

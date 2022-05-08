@@ -15,7 +15,7 @@ const MenageProduct = () => {
     const handleDelete = id => {
         const proceed = window.confirm("Are you sure? ")
         if (proceed) {
-            const url = `https://lit-shelf-23459.herokuapp.com/product/${id}`
+            const url = `http://localhost:5000/product/${id}`
             fetch(url, {
                 method: "DELETE"
             })

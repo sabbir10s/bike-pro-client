@@ -8,7 +8,7 @@ const UpdateProduct = () => {
     const [product, setProduct] = useState({});
     const [reload, setIsReload] = useState(true)
     useEffect(() => {
-        fetch(`https://lit-shelf-23459.herokuapp.com/product/${productId}`)
+        fetch(`http://localhost:5000/product/${productId}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [productId, reload])
@@ -18,7 +18,7 @@ const UpdateProduct = () => {
         event.preventDefault();
         const inputQuantity = event.target.quantity.value;
         const quantity = parseInt(inputQuantity) + product.quantity;
-        fetch(`https://lit-shelf-23459.herokuapp.com/product/${productId}`, {
+        fetch(`http://localhost:5000/product/${productId}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
@@ -35,7 +35,7 @@ const UpdateProduct = () => {
     }
     const handelDelivered = () => {
         const quantity = product.quantity - 1;
-        fetch(`https://lit-shelf-23459.herokuapp.com/product/${productId}`, {
+        fetch(`http://localhost:5000/product/${productId}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

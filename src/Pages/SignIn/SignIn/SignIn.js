@@ -6,6 +6,7 @@ import SocialSignIn from '../SocialSignIn/SocialSignIn';
 import Loading from '../../../Shared/Loading/Loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 const SignIn = () => {
     const [
@@ -28,15 +29,18 @@ const SignIn = () => {
         <Loading />
     }
 
-    if (user) {
-        navigate(from, { replace: true });
-    }
+    // if (user) {
 
-    const handelSignInWithEmail = event => {
+    // }
+
+    const handelSignInWithEmail = async event => {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
-        signInWithEmailAndPassword(email, password);
+        await signInWithEmailAndPassword(email, password);
+        const { data } = await axios.post('http://localhost:5000/login', { email });
+        localStorage.setItem('accessToken', data.accessToken)
+        navigate(from, { replace: true });
     }
     const resetPassword = async () => {
         await sendPasswordResetEmail(email);
