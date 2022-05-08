@@ -76,12 +76,12 @@ export default function Navbar() {
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                                 {/* Profile dropdown */}
                                 <Menu as="div" className="ml-3 relative">
-                                    <div className='flex gap-2 items-center'>
+                                    <div className='flex flex-col-reverse items-center md:flex-row gap-0 md:gap-2 md:items-center mt-6 md:mt-0 '>
                                         {
                                             user ?
                                                 <p>{user?.displayName}</p>
                                                 :
-                                                <div className='flex items-center gap-1'><span>SIGN IN</span> <HiOutlineArrowNarrowRight /></div>
+                                                <div className='flex items-center gap-1'><span>Sign In</span> <span className='hidden md:block'><HiOutlineArrowNarrowRight /></span></div>
                                         }
                                         {
                                             user ?

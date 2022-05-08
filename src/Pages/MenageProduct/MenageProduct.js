@@ -38,21 +38,22 @@ const MenageProduct = () => {
                     :
                     <div>
                         {
-                            products.map(product => <div className='w-full md:w-[60%] lg:w-[50%] mb-5 mx-auto'>
+                            products.map(product => <div className='w-full md:w-[60%] lg:w-[50%] mb-2 mx-auto'>
                                 <table className='w-full'>
                                     <tr className='border border-[#ff634e]'>
                                         <td className='py-5 px-2 w-[15%]'><img className='w-[50px] mx-auto' src={product.picture} alt="" /></td>
                                         <td className=' py-5 px-2 '><p>{product.product_name}</p></td>
+                                        <td className=' py-5 px-2 w-[10%] text-center'> <p>{product.quantity}</p></td>
                                         <td className=' py-5 px-2 w-[15%] text-center'> <p>${product.price}</p></td>
-                                        <td className=' py-5 px-2 w-[12%]'>
-                                            <button onClick={() => handleDelete(product._id)} className='text-[#ff634e] text-2xl hover:text-[#fd1e00]'>
+                                        <td className=' py-5 px-2 w-[8%]'>
+                                            <button onClick={() => handleDelete(product._id)} className='text-[#ff634e] text-xl hover:text-[#fd1e00]'>
                                                 <span className='icon'>
                                                     <RiDeleteBin6Line />
                                                     <span className='tooltip text-sm font-medium'>Delete</span>
                                                 </span>
                                             </button>
                                         </td>
-                                        <td className=' py-5 px-2 w-[15%]'> <button onClick={() => handleUpdateStock(product._id)} className='bg-[#1b3e41] hover:bg-[#ff634e] px-2 py-1 text-white'>Update</button> </td>
+                                        <td className=' py-5 px-2 w-[10%]'> <button onClick={() => handleUpdateStock(product._id)} className='text-sm font-medium text-[#ff634e] hover:underline hover:text-[#1b3e41]'>Update</button> </td>
                                     </tr>
                                 </table>
                             </div>)
