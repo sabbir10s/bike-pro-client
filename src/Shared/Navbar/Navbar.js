@@ -8,6 +8,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import CustomLink from '../CustomLink/CustomLink'
 import { HiUserCircle } from 'react-icons/hi';
 import { signOut } from 'firebase/auth';
+import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
 
 
 function classNames(...classes) {
@@ -58,13 +59,13 @@ export default function Navbar() {
                                             Home
                                         </CustomLink>
                                         <CustomLink
-                                            to="/inventory"
+                                            to="/allProducts"
                                             className='block px-4 py-2 text-sm text-gray-700'
                                         >
                                             All Products
                                         </CustomLink>
                                         <CustomLink
-                                            to="/menageinventory"
+                                            to="/menageProduct"
                                             className='block px-4 py-2 text-sm text-gray-700'
                                         >
                                             Menage Products
@@ -75,7 +76,13 @@ export default function Navbar() {
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                                 {/* Profile dropdown */}
                                 <Menu as="div" className="ml-3 relative">
-                                    <div>
+                                    <div className='flex gap-2 items-center'>
+                                        {
+                                            user ?
+                                                <p>{user?.displayName}</p>
+                                                :
+                                                <div className='flex items-center gap-1'><span>SIGN IN</span> <HiOutlineArrowNarrowRight /></div>
+                                        }
                                         {
                                             user ?
                                                 <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
@@ -123,10 +130,10 @@ export default function Navbar() {
                                                     <Menu.Item>
                                                         {({ active }) => (
                                                             <CustomLink
-                                                                to="/myproduct"
+                                                                to="/myProduct"
                                                                 className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                                                             >
-                                                                My Products
+                                                                My Product
                                                             </CustomLink>
                                                         )}
                                                     </Menu.Item>
@@ -150,7 +157,7 @@ export default function Navbar() {
                                                     <Menu.Item>
                                                         {({ active }) => (
                                                             <Link
-                                                                to='/signin'
+                                                                to='/signIn'
                                                                 className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                                                             >
                                                                 Sign In
@@ -176,7 +183,7 @@ export default function Navbar() {
                                 Home
                             </CustomLink>
                             <CustomLink
-                                to="/inventory"
+                                to="/allProducts"
                                 className='block px-4 py-2 text-sm text-gray-700'
                             >
                                 All Products
@@ -184,10 +191,10 @@ export default function Navbar() {
                             {
                                 user ?
                                     <CustomLink
-                                        to="/menageinventory"
+                                        to="/menageProduct"
                                         className='block px-4 py-2 text-sm text-gray-700'
                                     >
-                                        Menage Products
+                                        Menage Product
                                     </CustomLink>
                                     :
                                     ""

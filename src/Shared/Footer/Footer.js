@@ -16,8 +16,8 @@ const Footer = () => {
                 <p class="text-white flex flex-col-reverse">
 
                     <Link to="/blogs">Blogs</Link>
-                    <Link to="/myproduct">My product</Link>
-                    <Link to="/inventory">Inventory</Link>
+                    <Link to="/myProduct">My product</Link>
+                    <Link to="/allProducts">All Products</Link>
                     <Link to="/home">Home</Link>
                 </p>
 

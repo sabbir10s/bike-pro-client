@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import SocialSignIn from '../SocialSignIn/SocialSignIn';
 import Loading from '../../../Shared/Loading/Loading';
@@ -12,17 +12,22 @@ const SignUp = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-    const creatUser = event => {
+    const [updateProfile] = useUpdateProfile(auth);
+
+
+    const creatUser = async event => {
         event.preventDefault();
-        // const name = event.target.name.value;
+        const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
-        createUserWithEmailAndPassword(email, password);
+        await createUserWithEmailAndPassword(email, password);
+        await updateProfile({ displayName: name });
+        navigate('/')
     }
     if (user) {
-        navigate('/')
+        console.log(user);
     }
     if (loading) {
         <Loading />
@@ -41,7 +46,7 @@ const SignUp = () => {
                         error ? <span className='text-[#ff634e]'>{error?.message}</span> : ""
                     }
                     <input type="submit" className='bg-[#ff634e] hover:shadow-lg w-full text-white cursor-pointer mt-4 p-2 text-1xl' value="Sign UP" />
-                    <span className='text-black mt-4 block'>Dont't have an account <Link to='/signin' className='text-[#ff634e] font-bold'>Sign In</Link> </span>
+                    <span className='text-black mt-4 block'>Dont't have an account <Link to='/signIn' className='text-[#ff634e] font-bold'>Sign In</Link> </span>
                 </form>
                 <SocialSignIn />
             </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddProduct = () => {
     const [user] = useAuthState(auth);
@@ -34,6 +35,7 @@ const AddProduct = () => {
     }
     return (
         <div className='mx-auto w-[95%] md:w-[50%] lg:w-[40%] mb-10 border-2 border-[#ff634e] p-5 shadow-xl'>
+            <ToastContainer />
             <form onSubmit={handleUpload}>
                 <h1 className='text-xl py-1 mb-5 text-center text-[#ff634e]'>Add New Product</h1>
                 <div className="relative z-0 w-full mb-6 group">
@@ -73,7 +75,6 @@ const AddProduct = () => {
                     <label for="description" className="peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#ff634e] peer-focus:dark:text-[#ff634e] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Description</label>
                 </div>
                 <input type="submit" className="text-white bg-[#ff634e] hover:bg-[#1b3e41] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm sm:w-auto px-5 py-2 lg:w-[30%] text-center" value="Upload" />
-                <ToastContainer />
             </form>
         </div>
     );

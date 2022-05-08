@@ -13,7 +13,7 @@ const Supplier = () => {
     return (
         <div className='mx-10 py-10'>
             <div className='mb-10'>
-                <h1 className='text-center text-4xl text-[#ff634e] font-medium mb-1 tracking-wider'>SUPPLIERS</h1>
+                <h1 className='text-center text-3xl text-[#ff634e] font-medium mb-1 tracking-wider'>SUPPLIERS</h1>
                 <div className='h-[3px] w-[200px] mx-auto my-2 bg-[#ff634e]'></div>
                 <h1 className='text-center text-xl text-gray-500 tracking-wider'>All of my product suppliers</h1>
             </div>

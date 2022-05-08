@@ -3,8 +3,8 @@ import "./Blogs.css"
 import jwt from '../../image/jwt.avif'
 const Blogs = () => {
     return (
-        <div className='mx-10 mb-10'>
-            <p className='text-2xl font-medium text-[#1b3e41] mb-3'>Difference between javascript and nodejs</p>
+        <div className='mx-2 md:mx-10 mb-10'>
+            <p className='text-lg md:text-2xl font-bold text-[#1b3e41] mb-3'>Difference between javascript and nodejs</p>
             <>
                 <div className='ml-5'>
                     <table>
@@ -46,7 +46,7 @@ const Blogs = () => {
             </>
 
             <div>
-                <p className='text-2xl font-medium text-[#1b3e41] mt-5 mb-2'>When should you use nodejs and when should you use mongodb?</p>
+                <p className='text-lg md:text-2xl font-bold text-[#1b3e41] mt-5 mb-2'>When should you use nodejs and when should you use mongodb?</p>
                 <div className='ml-5 bg-[#f2f2f2] pl-2'>
                     <p className='font-medium text-[#ff634e] text-xl'>Nodejs</p>
                     <p>  is a Javascript engine that you can write any application you want with (by programming in the Javascript language). It runs your Javascript code. Most commonly, it is used to build servers that can respond to web requests, though it can be used for lots of other types of code too.</p>
@@ -60,7 +60,7 @@ const Blogs = () => {
             </div>
 
             <div>
-                <p className='text-2xl font-medium text-[#1b3e41] mt-5 mb-2'>Differences between SQL and NoSQL databases.</p>
+                <p className='text-lg md:text-2xl font-bold text-[#1b3e41] mt-5 mb-2'>Differences between SQL and NoSQL databases.</p>
                 <div className='ml-5 bg-[#f2f2f2] pl-7 pt-2'>
                     <ol className='list-disc'>
                         <li>SQL databases are relational, NoSQL databases are non-relational.</li>
@@ -73,7 +73,7 @@ const Blogs = () => {
             </div>
 
             <div>
-                <p className='text-2xl font-medium text-[#1b3e41] mt-5 mb-2'>What is the purpose of jwt and how does it work?</p>
+                <p className='text-lg font-bold md:text-2xl text-[#1b3e41] mt-5 mb-2'>What is the purpose of jwt and how does it work?</p>
                 <div className='ml-5 bg-[#f2f2f2] p-2'>
                     <p className='font-medium text-[#ff634e] text-xl'>Purpose</p>
                     <p>
