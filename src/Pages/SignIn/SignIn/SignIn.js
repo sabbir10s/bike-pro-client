@@ -11,7 +11,6 @@ import axios from 'axios';
 const SignIn = () => {
     const [
         signInWithEmailAndPassword,
-        user,
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
@@ -28,10 +27,6 @@ const SignIn = () => {
     if (loading || sending) {
         <Loading />
     }
-
-    // if (user) {
-
-    // }
 
     const handelSignInWithEmail = async event => {
         event.preventDefault();
@@ -51,15 +46,15 @@ const SignIn = () => {
     return (
 
         <div className='flex justify-center bg-[#1b3e41]'>
-            <div className='w-[300px] p-5 my-12 bg-white'>
+            <div className='max-w-[400px] p-5 my-12 bg-white rounded-lg'>
                 <form onSubmit={handelSignInWithEmail}>
                     <span className='text-[#ff634e]  text-3xl'>Sign In</span>
-                    <input onBlur={handleEmailBlur} className='w-full border border-[#ff634e] mt-4 p-2 text-1xl' type="email" name='email' placeholder='Your Email' required />
-                    <input className='w-full border border-[#ff634e] mt-4 p-2 text-1xl' type="password" name='password' placeholder='Your Password' />
+                    <input onBlur={handleEmailBlur} className=' rounded-md w-full border border-[#ff634e] mt-4 p-2 text-1xl' type="email" name='email' placeholder='Your Email' required />
+                    <input className=' rounded-md w-full border border-[#ff634e] mt-4 p-2 text-1xl' type="password" name='password' placeholder='Your Password' />
                     {
                         error ? <span className='text-[#ff634e]'>{error?.message}</span> : ""
                     }
-                    <input type="submit" className='bg-[#ff634e] hover:shadow-lg w-full text-white cursor-pointer mt-4 p-2 text-1xl' value="Sign In" />
+                    <input type="submit" className=' rounded-md bg-[#ff634e] hover:shadow-lg w-full text-white cursor-pointer mt-4 p-2 text-1xl' value="Sign In" />
                     <span className='text-black mt-4 block'>Forget password ? <button onClick={resetPassword} className='text-[#ff634e] font-bold'>Forget</button></span>
                     <span className='text-black mt-4 block'>Dont't have an account <Link to='/signup' className='text-[#ff634e] font-bold'>Sign Up</Link> </span>
                 </form>

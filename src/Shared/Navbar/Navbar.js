@@ -70,6 +70,12 @@ export default function Navbar() {
                                         >
                                             Menage Products
                                         </CustomLink>
+                                        <CustomLink
+                                            to="/blogs"
+                                            className='block px-4 py-2 text-sm text-gray-700'
+                                        >
+                                            Blogs
+                                        </CustomLink>
                                     </div>
                                 </div>
                             </div>

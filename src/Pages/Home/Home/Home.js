@@ -30,7 +30,7 @@ const Home = () => {
                                         <ProductCart product={product} key={product._id}></ProductCart>)
                                 }
                             </div>
-                            <button onClick={() => navigate('/allProduct')} className='p-2 rounded leading-none text-[#ff634e] text-xl hover:bg-[#ff634e] hover:text-white border-2 border-[#ff634e] mt-8 shadow-lg flex gap-2 '><span>All Products</span><AiOutlineArrowRight /></button>
+                            <button onClick={() => navigate('/allProducts')} className='p-2 rounded leading-none text-[#ff634e] text-xl hover:bg-[#ff634e] hover:text-white border-2 border-[#ff634e] mt-8 shadow-lg flex gap-2 '><span>All Products</span><AiOutlineArrowRight /></button>
                         </div>
                     </div>
                     <Supplier />

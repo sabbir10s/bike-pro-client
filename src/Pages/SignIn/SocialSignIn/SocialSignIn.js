@@ -25,14 +25,14 @@ const SocialSignIn = () => {
             {
                 googleError ? <span className='text-[#ff634e]'>{googleError?.message}</span> : ""
             }
-            <button onClick={() => signInWithGoogle()} className='border border-[#ff634e] hover:shadow-lg flex items-center justify-center gap-2 w-full cursor-pointer mt-4 p-2 text-1xl'>
+            <button onClick={() => signInWithGoogle()} className='rounded-md border border-[#ff634e] hover:shadow-lg flex items-center justify-center gap-2 w-full cursor-pointer mt-4 p-2 text-1xl'>
                 <img className="w-[30px]" src={googleLogo} alt="" />
                 <span>Sign In With Google</span>
             </button>
             {
                 fbError ? <span className='text-[#ff634e]'>{fbError?.message}</span> : ""
             }
-            <button onClick={() => signInWithFacebook()} className='border border-[#ff634e] hover:shadow-lg flex items-center justify-center gap-2 w-full cursor-pointer mt-2 p-2 text-1xl'>
+            <button onClick={() => signInWithFacebook()} className='rounded-md border border-[#ff634e] hover:shadow-lg flex items-center justify-center gap-2 w-full cursor-pointer mt-2 p-2 text-1xl'>
                 <img className="w-[30px]" src={facebookLogo} alt="" />
                 <span>Sign In With Facebook</span>
             </button>

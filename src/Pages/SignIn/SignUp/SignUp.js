@@ -36,16 +36,16 @@ const SignUp = () => {
     return (
 
         <div className='flex justify-center items-center bg-[#1b3e41]'>
-            <div className='w-[300px] p-5 my-6 bg-white'>
+            <div className='max-w-[400px] p-5 my-8 bg-white rounded-lg'>
                 <form onSubmit={creatUser}>
                     <span className='text-[#ff634e]  text-3xl'>Sign Up</span>
-                    <input className='w-full border border-[#ff634e] mt-4 p-2 text-1xl' type="text" name='name' placeholder='Your Name' required />
-                    <input className='w-full border border-[#ff634e] mt-4 p-2 text-1xl' type="email" name='email' placeholder='Your Email' required />
-                    <input className='w-full border border-[#ff634e] mt-4 p-2 text-1xl' type="password" name='password' placeholder='Password' required />
+                    <input className='rounded-md w-full border border-[#ff634e] mt-4 p-2 text-1xl' type="text" name='name' placeholder='Your Name' required />
+                    <input className='rounded-md w-full border border-[#ff634e] mt-4 p-2 text-1xl' type="email" name='email' placeholder='Your Email' required />
+                    <input className='rounded-md w-full border border-[#ff634e] mt-4 p-2 text-1xl' type="password" name='password' placeholder='Password' required />
                     {
                         error ? <span className='text-[#ff634e]'>{error?.message}</span> : ""
                     }
-                    <input type="submit" className='bg-[#ff634e] hover:shadow-lg w-full text-white cursor-pointer mt-4 p-2 text-1xl' value="Sign UP" />
+                    <input type="submit" className='rounded-md bg-[#ff634e] hover:shadow-lg w-full text-white cursor-pointer mt-4 p-2 text-1xl' value="Sign UP" />
                     <span className='text-black mt-4 block'>Dont't have an account <Link to='/signIn' className='text-[#ff634e] font-bold'>Sign In</Link> </span>
                 </form>
                 <SocialSignIn />
