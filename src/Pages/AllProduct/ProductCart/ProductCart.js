@@ -8,14 +8,14 @@ const ProductCart = ({ product }) => {
         navigate(`/allProducts/${_id}`)
     }
     return (
-        <div className='p-5 border hover:border-[#ff634e] hover:border shadow-md hover:shadow-xl rounded-xl'>
+        <div className='p-5 border hover:border-primary hover:border shadow-md hover:shadow-xl rounded-xl'>
             <div className=''>
                 <div>
                     <img className='w-[250px]' src={picture} alt="" />
-                    <p className='font-bold text-xl text-[#1b3e41] mt-3'>{product_name}</p>
-                    <p className='font-medium text-[#ff634e] '>Price: ${price}</p>
-                    <p className='text-[#1b3e41] '>Quantity: {quantity}</p>
-                    <p className='text-[#1b3e41] '>Supplier Name: {supplier}</p>
+                    <p className='font-bold text-xl text-secondary mt-3'>{product_name}</p>
+                    <p className='font-medium text-primary '>Price: ${price}</p>
+                    <p className='text-secondary '>Quantity: {quantity}</p>
+                    <p className='text-secondary '>Supplier Name: {supplier}</p>
                 </div>
 
                 <div>
