@@ -1,12 +1,11 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 import logo from "../../image/main logo.png";
 import CustomLink from '../CustomLink/CustomLink';
 import { signOut } from 'firebase/auth';
-import { HiUserCircle } from 'react-icons/hi';
-
+import { CgMenuGridR } from 'react-icons/cg';
 import userPhoto from '../../image/userPhoto.jpg'
 
 
@@ -19,8 +18,12 @@ const Navbar = ({ children }) => {
                 <div class="drawer-content flex flex-col">
                     {/* <!-- Navbar --> */}
                     <div class="w-full navbar container mx-auto">
-
+                        <label for="my-drawer" class="drawer-button"> <span className='text-3xl lg:hidden cursor-pointer text-primary'><CgMenuGridR /></span>
+                        </label>
                         <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+
+
+
                             <div className="flex-shrink-0 flex items-center">
                                 <Link to='/'><img
                                     className="block lg:hidden h-8 w-auto"
@@ -35,6 +38,7 @@ const Navbar = ({ children }) => {
                                     />
                                 </Link>
                             </div>
+
                             <div className="hidden sm:block sm:ml-6">
                                 <div className="flex space-x-4">
                                     <CustomLink
@@ -50,10 +54,10 @@ const Navbar = ({ children }) => {
                                         All Products
                                     </CustomLink>
                                     <CustomLink
-                                        to="/menageProduct"
+                                        to="/dashboard"
                                         className='block px-4 py-2 text-sm text-gray-700'
                                     >
-                                        Menage Products
+                                        Dashboard
                                     </CustomLink>
                                     <CustomLink
                                         to="/blogs"
@@ -71,12 +75,14 @@ const Navbar = ({ children }) => {
                                         user ?
                                             <p>{user?.displayName}</p>
                                             :
-                                            <CustomLink
-                                                className='block px-4 py-2 text-sm text-gray-700'
-                                                to='/signIn'
-                                            >
-                                                Sign In
-                                            </CustomLink>
+                                            <>
+                                                <CustomLink className='block px-4 py-2 text-sm text-gray-700' to='/signIn'>
+                                                    Sign In
+                                                </CustomLink>
+                                                <CustomLink className='block px-4 py-2 text-sm text-gray-700' to='/signUp'>
+                                                    Sign Up
+                                                </CustomLink>
+                                            </>
                                     }
                                     {
                                         user ?
@@ -145,8 +151,32 @@ const Navbar = ({ children }) => {
                     <label for="my-drawer-3" class="drawer-overlay"></label>
                     <ul class="menu p-4 overflow-y-auto w-80 bg-base-100">
                         {/* <!-- Sidebar content here --> */}
-                        <li><a>Sidebar Item 1</a></li>
-                        <li><a>Sidebar Item 2</a></li>
+                        <CustomLink
+                            to="/home"
+                            className='block px-4 py-2 text-sm text-gray-700'
+                        >
+                            Home
+                        </CustomLink>
+                        <CustomLink
+                            to="/allProducts"
+                            className='block px-4 py-2 text-sm text-gray-700'
+                        >
+                            All Products
+                        </CustomLink>
+
+                        <CustomLink
+                            to="/dashboard"
+                            className='block px-4 py-2 text-sm text-gray-700'
+                        >
+                            Dashboard
+                        </CustomLink>
+
+                        <CustomLink
+                            to="/blogs"
+                            className='block px-4 py-2 text-sm text-gray-700'
+                        >
+                            Blogs
+                        </CustomLink>
 
                     </ul>
 

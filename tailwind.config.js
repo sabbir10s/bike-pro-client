@@ -17,6 +17,8 @@ module.exports = {
 
           "base-100": "#FFFFFF",
 
+          "base-200": "#e6eef8",
+
           "info": "#3ABFF8",
 
           "success": "#36D399",

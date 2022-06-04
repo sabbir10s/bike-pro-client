@@ -35,7 +35,7 @@ const SignUp = () => {
 
     return (
 
-        <div className='flex justify-center items-center bg-[#1b3e41]'>
+        <div className='flex justify-center h-screen items-center bg-secondary'>
             <div className='max-w-[400px] p-5 my-8 bg-white rounded-lg'>
                 <form onSubmit={creatUser}>
                     <span className='text-[#ff634e]  text-3xl'>Sign Up</span>

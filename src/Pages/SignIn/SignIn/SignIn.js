@@ -45,7 +45,7 @@ const SignIn = () => {
 
     return (
 
-        <div className='flex justify-center bg-[#1b3e41]'>
+        <div className='flex justify-center h-screen bg-secondary'>
             <div className='max-w-[400px] p-5 my-12 bg-white rounded-lg'>
                 <form onSubmit={handelSignInWithEmail}>
                     <span className='text-[#ff634e]  text-3xl'>Sign In</span>
