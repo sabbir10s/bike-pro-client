@@ -1,6 +1,6 @@
 import React from 'react';
-import useProducts from '../../Shared/Hooks/useProducts';
-import Loading from '../../Shared/Loading/Loading';
+import useProducts from '../../../Shared/Hooks/useProducts';
+import Loading from '../../../Shared/Loading/Loading';
 import ProductsRow from './ProductsRow';
 const MenageProducts = () => {
     const [products, setProducts] = useProducts([]);
@@ -38,7 +38,7 @@ const MenageProducts = () => {
                                         <th className='text-base-100 bg-primary'>Picture</th>
                                         <th className='text-base-100 bg-primary'>Details</th>
                                         <th className='text-base-100 bg-primary'>Delete</th>
-                                        <th className='text-base-100 bg-primary'>Update</th>
+                                        <th className='text-base-100 bg-primary'>Stock Update</th>
                                     </tr>
                                 </tfoot>
 

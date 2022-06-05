@@ -1,8 +1,9 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import CustomLink from '../../Shared/CustomLink/CustomLink';
+import CustomLink from '../../../Shared/CustomLink/CustomLink';
 
-const Dashboard = () => {
+
+const Inventory = () => {
     return (
         <div class="drawer drawer-mobile bg-secondary h-screen">
             <input id="my-drawer" type="checkbox" class="drawer-toggle" />
@@ -16,13 +17,13 @@ const Dashboard = () => {
                 <label for="my-drawer" class="drawer-overlay text-slate-200"></label>
                 <ul class="menu p-4 overflow-y-auto w-52 bg-base-100 text-base-content">
                     {/* <!-- Sidebar content here --> */}
-                    <span className='mt-3'><CustomLink to='/dashboard'>Menage All</CustomLink></span>
-                    <span className='mt-3'><CustomLink to='/dashboard/addProduct'>Add New</CustomLink></span>
-                    <span className='mt-3'><CustomLink to='/dashboard/myProduct'>My Products</CustomLink></span>
+                    <span className='mt-3'><CustomLink to='/inventory'>My Products</CustomLink></span>
+                    <span className='mt-3'><CustomLink to='/inventory/menageProducts'>Menage All Products</CustomLink></span>
+                    <span className='mt-3'><CustomLink to='/inventory/addProduct'>Add New</CustomLink></span>
                 </ul>
             </div>
         </div>
     );
 };
 
-export default Dashboard;
+export default Inventory;

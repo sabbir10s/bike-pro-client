@@ -54,17 +54,12 @@ const Navbar = ({ children }) => {
                                         All Products
                                     </CustomLink>
                                     <CustomLink
-                                        to="/dashboard"
+                                        to="/inventory"
                                         className='block px-4 py-2 text-sm text-gray-700'
                                     >
-                                        Dashboard
+                                        Inventory
                                     </CustomLink>
-                                    <CustomLink
-                                        to="/blogs"
-                                        className='block px-4 py-2 text-sm text-gray-700'
-                                    >
-                                        Blogs
-                                    </CustomLink>
+
                                 </div>
                             </div>
                         </div>
@@ -165,17 +160,10 @@ const Navbar = ({ children }) => {
                         </CustomLink>
 
                         <CustomLink
-                            to="/dashboard"
+                            to="/inventory"
                             className='block px-4 py-2 text-sm text-gray-700'
                         >
-                            Dashboard
-                        </CustomLink>
-
-                        <CustomLink
-                            to="/blogs"
-                            className='block px-4 py-2 text-sm text-gray-700'
-                        >
-                            Blogs
+                            Inventory
                         </CustomLink>
 
                     </ul>

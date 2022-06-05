@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import Loading from '../../Shared/Loading/Loading';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
+import Loading from '../../../Shared/Loading/Loading';
+import auth from '../../../firebase.init';
 
 const MyProduct = () => {
     const [user] = useAuthState(auth);
@@ -49,7 +49,7 @@ const MyProduct = () => {
         }
     }
     return (
-        <div className='min-h-screen'>
+        <div>
             <p className='text-2xl text-center mb-3'>My Product List</p>
             {
                 myProducts.length === 0 ? <Loading></Loading>

@@ -5,7 +5,7 @@ const ProductCart = ({ product }) => {
     const { _id, product_name, quantity, picture, supplier, price } = product;
     const navigate = useNavigate();
     const handleUpdateStock = () => {
-        navigate(`/allProducts/${_id}`)
+        navigate(`/inventory/updateProduct/${_id}`)
     }
     return (
         <div className='p-5 border hover:border-primary hover:border shadow-md hover:shadow-xl rounded-xl'>
