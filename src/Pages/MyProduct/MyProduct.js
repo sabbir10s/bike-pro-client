@@ -67,7 +67,6 @@ const MyProduct = () => {
                                             <button onClick={() => handleDelete(product._id)} className='text-[#ff634e] text-2xl hover:text-[#fd1e00]'>
                                                 <span className='icon'>
                                                     <RiDeleteBin6Line />
-                                                    <span className='tooltip text-sm font-medium'>Delete</span>
                                                 </span>
                                             </button>
                                         </td>
