@@ -1,16 +1,17 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import auth from '../../firebase.init';
 import logo from "../../image/main logo.png";
 import CustomLink from '../CustomLink/CustomLink';
 import { signOut } from 'firebase/auth';
-import { CgMenuGridR } from 'react-icons/cg';
+import { BsTextLeft } from 'react-icons/bs';
 import userPhoto from '../../image/userPhoto.jpg'
 
 
 const Navbar = ({ children }) => {
     const [user] = useAuthState(auth);
+    const { pathname } = useLocation()
     return (
         <nav>
             <div class="drawer drawer-end">
@@ -18,9 +19,11 @@ const Navbar = ({ children }) => {
                 <div class="drawer-content flex flex-col">
                     {/* <!-- Navbar --> */}
                     <div class="w-full navbar container mx-auto">
-                        <label for="my-drawer" class="drawer-button"> <span className='text-3xl lg:hidden cursor-pointer text-primary'><CgMenuGridR /></span>
-                        </label>
-                        <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                        {pathname.includes('inventory') &&
+                            <label for="my-drawer" class="drawer-button"> <span className='text-2xl lg:hidden cursor-pointer text-neutral'><BsTextLeft /></span>
+                            </label>
+                        }
+                        <div className="flex-1 flex items-center justify-center lg:items-stretch lg:justify-start">
 
 
 
