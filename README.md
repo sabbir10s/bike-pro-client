@@ -1,25 +1,24 @@
-# Project Name: Bike Pro
+# Bike Pro ( A warehouse management website! )
 
 ## [Live Site Link](https://bike-pro-d5b3f.web.app/)
 
 ## Project Overview
 
-Bike Pro is a a warehouse management website. Here is some information about this project.
-
-- With this website one user will be able to keep track of all the products in his warehouse
-- In this website user can delete, update, add her product information.
+- With this website, one user will be able to keep track of all the products in his warehouse.
+- On this website, users can delete, update, and add their product information.
 - There are 4 private route in this website. Without sign in user can't access those routs.
 - For manage Authentication in this project i use react-firebase-hooks.
 - This project completely responsive, you can use this website form any device.
 
-## List of technologies
+## List of Technologies
 
-1. Tailwind css
-2. React Router
-3. Firebase Authentication
-4. MongoDB
-5. Express JS
-6. Heroku
+- Languages: JavaScript(ES6);
+- Frontend: ReactJS, Tailwind CSS, HTML5, CSS3, , Context API, Custom Hook.
+- Backend: NodeJS, ExpressJS, MongoDB
+- Routing: React Router
+- Authentication: Firebase (Email, Google, Facebook);
+- Authorization: JSON Web Token (JWT);
+- Hosting: Firebase
 
 # Getting Started with Create React App
 
