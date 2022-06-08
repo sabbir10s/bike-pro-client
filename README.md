@@ -1,6 +1,6 @@
 # Bike Pro ( A warehouse management website! )
 
-## [Live Site Link](https://bike-pro-d5b3f.web.app/)
+### [https://bike-pro-d5b3f.web.app/](https://bike-pro-d5b3f.web.app/)
 
 ## Project Overview
 
@@ -12,13 +12,13 @@
 
 ## List of Technologies
 
-- Languages: JavaScript(ES6);
-- Frontend: ReactJS, Tailwind CSS, HTML5, CSS3, , Context API, Custom Hook.
-- Backend: NodeJS, ExpressJS, MongoDB
-- Routing: React Router
-- Authentication: Firebase (Email, Google, Facebook);
-- Authorization: JSON Web Token (JWT);
-- Hosting: Firebase
+- **Languages:** JavaScript(ES6);
+- **Frontend:** ReactJS, Tailwind CSS, HTML5, CSS3, , Context API, Custom Hook.
+- **Backend:** NodeJS, ExpressJS, MongoDB
+- **Routing:** React Router
+- **Authentication:** Firebase (Email, Google, Facebook);
+- **Authorization:** JSON Web Token (JWT);
+- **Hosting:** Firebase
 
 # Getting Started with Create React App
 
