@@ -7,7 +7,7 @@ const ProductsRow = ({ product, products, setProducts, index }) => {
     const { product_name, picture, quantity, price, _id } = product;
     const navigate = useNavigate()
     const handleUpdateStock = id => {
-        navigate(`/inventory/updateProduct/${id}`)
+        navigate(`/updateStock/${id}`)
     }
 
     const handleDelete = id => {
@@ -21,7 +21,7 @@ const ProductsRow = ({ product, products, setProducts, index }) => {
         })
             .then(willDelete => {
                 if (willDelete) {
-                    const url = `https://lit-shelf-23459.herokuapp.com/product/${id}`
+                    const url = `https://bike-pro-server.onrender.com/product/${id}`
                     fetch(url, {
                         method: "DELETE"
                     })
@@ -60,7 +60,7 @@ const ProductsRow = ({ product, products, setProducts, index }) => {
                     </span>
                 </button>
             </td>
-            <td> <button onClick={() => handleUpdateStock(_id)} className='text-sm font-medium text-success hover:underline hover:text-primary'>Stock Update</button> </td>
+            <td> <button onClick={() => handleUpdateStock(_id)} className='text-sm font-medium text-success hover:underline hover:text-primary'>Update Stock</button> </td>
         </tr>
     );
 };

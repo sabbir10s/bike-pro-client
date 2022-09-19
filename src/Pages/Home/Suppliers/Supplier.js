@@ -11,7 +11,7 @@ const Supplier = () => {
             .then(data => setSuppliers(data))
     }, [])
     return (
-        <div className='mx-10 py-10'>
+        <div className='container mx-auto py-10'>
             <div className='mb-10'>
                 <h1 className='text-center text-3xl text-[#ff634e] font-medium mb-1 tracking-wider'>SUPPLIERS</h1>
                 <div className='h-[3px] w-[200px] mx-auto my-2 bg-[#ff634e]'></div>

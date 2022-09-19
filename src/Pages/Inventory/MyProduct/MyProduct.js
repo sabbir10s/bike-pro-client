@@ -14,7 +14,7 @@ const MyProduct = () => {
     useEffect(() => {
         const getProducts = async () => {
             const email = user.email;
-            const url = `https://lit-shelf-23459.herokuapp.com/myproduct?email=${email}`
+            const url = `https://bike-pro-server.onrender.com/myproduct?email=${email}`
             try {
                 const { data } = await axios.get(url, {
                     headers: {
@@ -37,7 +37,7 @@ const MyProduct = () => {
     const handleDelete = id => {
         const proceed = window.confirm("Are you sure? ")
         if (proceed) {
-            const url = `https://lit-shelf-23459.herokuapp.com/product/${id}`
+            const url = `https://bike-pro-server.onrender.com/product/${id}`
             fetch(url, {
                 method: "DELETE"
             })

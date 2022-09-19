@@ -14,8 +14,8 @@ const MenageProducts = () => {
                     products.length === 0 ? <Loading></Loading>
                         :
 
-                        <div class="overflow-x-auto w-full">
-                            <table class="table w-full">
+                        <div className="overflow-x-auto w-full">
+                            <table className="table w-full">
                                 <thead>
                                     <tr>
                                         <th className='text-base-100 bg-primary'>No</th>

@@ -9,11 +9,9 @@ import Navbar from './Shared/Navbar/Navbar';
 import NotFond from './Shared/NotFound/NotFond';
 import PrivateRoute from './Shared/PrivateRoute/PrivateRoute';
 import MenageProducts from './Pages/Inventory/MenageProducts/MenageProducts';
-// import Inventory from './Pages/Dashboard/Inventory/Inventory';
 import MyProduct from './Pages/Inventory/MyProduct/MyProduct';
 import UpdateProductStock from './Pages/Inventory/UpdateStock/UpdateProductStock';
 import AddProduct from './Pages/Inventory/AddNewProduct/AddProduct';
-import Inventory from './Pages/Inventory/Inventory/Inventory';
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -25,7 +23,7 @@ const Wrapper = ({ children }) => {
 
 function App() {
   return (
-    <>
+    <div>
       {/* <Navbar /> */}
 
       <Navbar>
@@ -39,27 +37,21 @@ function App() {
               <UpdateProduct />
             </PrivateRoute>} /> */}
 
-            <Route path='/inventory' element={<Inventory />}>
+            <Route path='/myStock' element={<PrivateRoute>
+              <MyProduct />
+            </PrivateRoute>} />
 
-              <Route index element={<PrivateRoute>
-                <MyProduct />
-              </PrivateRoute>} />
+            <Route path='menageProducts' element={<PrivateRoute>
+              <MenageProducts />
+            </PrivateRoute>} />
 
-              <Route path='menageProducts' element={<PrivateRoute>
-                <MenageProducts />
-              </PrivateRoute>} />
+            <Route path='updateStock/:Id' element={<PrivateRoute>
+              <UpdateProductStock />
+            </PrivateRoute>} />
 
-              <Route path='updateProduct/:productId' element={<PrivateRoute>
-                <UpdateProductStock />
-              </PrivateRoute>} />
-
-              <Route path='addProduct' element={<PrivateRoute>
-                <AddProduct />
-              </PrivateRoute>} />
-
-
-
-            </Route>
+            <Route path='addProduct' element={<PrivateRoute>
+              <AddProduct />
+            </PrivateRoute>} />
 
             <Route path='/signIn' element={<SignIn />} />
             <Route path='/signup' element={<SignUp />} />
@@ -67,7 +59,7 @@ function App() {
           </Routes>
         </Wrapper>
       </Navbar>
-    </>
+    </div>
   );
 }
 

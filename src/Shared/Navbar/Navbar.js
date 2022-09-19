@@ -14,13 +14,13 @@ const Navbar = ({ children }) => {
     const { pathname } = useLocation()
     return (
         <nav>
-            <div class="drawer drawer-end">
-                <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
-                <div class="drawer-content flex flex-col">
+            <div className="drawer drawer-end">
+                <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
+                <div className="drawer-content flex flex-col">
                     {/* <!-- Navbar --> */}
-                    <div class="w-full navbar container mx-auto">
+                    <div className="w-full navbar container mx-auto">
                         {pathname.includes('inventory') &&
-                            <label for="my-drawer" class="drawer-button"> <span className='text-2xl lg:hidden cursor-pointer text-neutral'><BsTextLeft /></span>
+                            <label for="my-drawer" className="drawer-button"> <span className='text-2xl lg:hidden cursor-pointer text-neutral'><BsTextLeft /></span>
                             </label>
                         }
                         <div className="flex-1 flex items-center justify-center lg:items-stretch lg:justify-start">
@@ -56,18 +56,32 @@ const Navbar = ({ children }) => {
                                     >
                                         All Products
                                     </CustomLink>
+
                                     <CustomLink
-                                        to="/inventory"
+                                        to='/menageProducts'
                                         className='block px-4 py-2 text-sm text-gray-700'
                                     >
-                                        Inventory
+                                        Menage Stocks
+                                    </CustomLink>
+                                    <CustomLink
+                                        to='/addProduct'
+                                        className='block px-4 py-2 text-sm text-gray-700'
+                                    >
+                                        Add Product
+                                    </CustomLink>
+
+                                    <CustomLink
+                                        to="/myStock"
+                                        className='block px-4 py-2 text-sm text-gray-700'
+                                    >
+                                        My Product
                                     </CustomLink>
 
                                 </div>
                             </div>
                         </div>
-                        <div class="flex-none hidden lg:block">
-                            <ul class="menu menu-horizontal">
+                        <div className="flex-none hidden lg:block">
+                            <ul className="menu menu-horizontal">
                                 <div className='flex flex-col-reverse items-center md:flex-row gap-0 md:gap-2 md:items-center mt-6 md:mt-0 '>
                                     {
                                         user ?
@@ -85,14 +99,14 @@ const Navbar = ({ children }) => {
                                     {
                                         user ?
                                             <>
-                                                <div class="dropdown dropdown-click dropdown-end">
+                                                <div className="dropdown dropdown-click dropdown-end">
 
                                                     {
 
                                                         user?.photoURL
                                                             ?
-                                                            <label tabIndex="0" class="m-1 avatar">
-                                                                <div class="w-8 rounded-full ring ring-success ring-offset-base-100 ring-offset-2">
+                                                            <label tabIndex="0" className="m-1 avatar">
+                                                                <div className="w-8 rounded-full ring ring-success ring-offset-base-100 ring-offset-2">
                                                                     <img
                                                                         className="cursor-pointer rounded-full"
                                                                         src={user?.photoURL}
@@ -102,8 +116,8 @@ const Navbar = ({ children }) => {
 
                                                             </label>
                                                             :
-                                                            <label tabIndex="0" class="m-1 avatar">
-                                                                <div class="w-8 flex justify-center items-center rounded-full ring ring-success ring-offset-base-100 ring-offset-2">
+                                                            <label tabIndex="0" className="m-1 avatar">
+                                                                <div className="w-8 flex justify-center items-center rounded-full ring ring-success ring-offset-base-100 ring-offset-2">
                                                                     <img
                                                                         className="cursor-pointer rounded-full"
                                                                         src={userPhoto}
@@ -115,7 +129,7 @@ const Navbar = ({ children }) => {
 
                                                     }
 
-                                                    <div tabIndex="0" class="dropdown-content menu ">
+                                                    <div tabIndex="0" className="dropdown-content menu ">
                                                         <div>
                                                             <p
                                                                 onClick={() => signOut(auth)}
@@ -136,18 +150,18 @@ const Navbar = ({ children }) => {
                                 </div>
                             </ul>
                         </div>
-                        <div class="flex-none lg:hidden">
-                            <label for="my-drawer-3" class="btn btn-square btn-ghost">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        <div className="flex-none lg:hidden">
+                            <label for="my-drawer-3" className="btn btn-square btn-ghost">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                             </label>
                         </div>
                     </div>
                     {/* <!-- Page content here --> */}
                     {children}
                 </div>
-                <div class="drawer-side">
-                    <label for="my-drawer-3" class="drawer-overlay"></label>
-                    <ul class="menu p-4 overflow-y-auto w-80 bg-base-100">
+                <div className="drawer-side">
+                    <label for="my-drawer-3" className="drawer-overlay"></label>
+                    <ul className="menu p-4 overflow-y-auto w-80 bg-base-100">
                         {/* <!-- Sidebar content here --> */}
                         <CustomLink
                             to="/home"
@@ -159,14 +173,14 @@ const Navbar = ({ children }) => {
                             to="/allProducts"
                             className='block px-4 py-2 text-sm text-gray-700'
                         >
-                            All Products
+                            All Stocks
                         </CustomLink>
 
                         <CustomLink
                             to="/inventory"
                             className='block px-4 py-2 text-sm text-gray-700'
                         >
-                            Inventory
+                            Menage Stocks
                         </CustomLink>
 
                     </ul>

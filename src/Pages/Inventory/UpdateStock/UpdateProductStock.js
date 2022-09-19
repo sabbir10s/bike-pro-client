@@ -4,21 +4,21 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const UpdateProductStock = () => {
-    const { productId } = useParams();
+    const { Id } = useParams();
     const [product, setProduct] = useState({});
     const [reload, setIsReload] = useState(true)
     useEffect(() => {
-        fetch(`https://lit-shelf-23459.herokuapp.com/product/${productId}`)
+        fetch(`https://bike-pro-server.onrender.com/product/${Id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
-    }, [productId, reload])
+    }, [Id, reload])
 
 
     const handelIncreaseQuantity = event => {
         event.preventDefault();
         const inputQuantity = event.target.quantity.value;
         const quantity = parseInt(inputQuantity) + product.quantity;
-        fetch(`https://lit-shelf-23459.herokuapp.com/product/${productId}`, {
+        fetch(`https://bike-pro-server.onrender.com/product/${Id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
@@ -35,7 +35,7 @@ const UpdateProductStock = () => {
     }
     const handelDelivered = () => {
         const quantity = product.quantity - 1;
-        fetch(`https://lit-shelf-23459.herokuapp.com/product/${productId}`, {
+        fetch(`https://bike-pro-server.onrender.com/product/${Id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
@@ -58,14 +58,11 @@ const UpdateProductStock = () => {
                         <img className='w-[250px]' src={product.picture} alt="" />
                     </div>
                     <dir className='col-span-2'>
-                        <p className='text-primary mt-2 text-2xl'>{product.product_name}</p>
-                        <p>Price: {product.price}</p>
-                        <p>Quantity: {product.quantity}</p>
-                        <p>Supplier - {product.supplier}</p>
-                        <p className='text-justify text-gray-500'> <span className='font-bold'>Description:</span> {product.description}</p>
-                        <div className='flex flex-col lg:flex-row md:flex-row gap-4 mt-2'>
+                        <p className='text-secondary font-bold mt-2 text-4xl'>{product.product_name}</p>
+                        <p className='font-bold text-xl my-2 text-primary'>${product.price}</p>
+                        <div className='flex flex-col lg:flex-row md:flex-row gap-4 my-5'>
                             <div className='border p-3 w-[100%] lg:w-[50%] md:w-[50%] shadow-lg'>
-                                <p className='font-semibold text-[#ff634e] text-lg mt-1'>Product Quantity: {product.quantity}</p>
+                                <div><span className='text-gray-500'>Product Quantity-</span> <span className='text-primary font-bold text-xl'>{product.quantity}</span></div>
                                 <button onClick={handelDelivered} className='px-4 py-2 leading-none text-white bg-[#ff634e] hover:text-white hover:bg-[#1b3e41] mt-4 w-full'>Delivered One</button>
                             </div>
                             <div className='border p-3  w-[100%] lg:w-[50%] md:w-[50%] shadow-lg'>
@@ -74,6 +71,10 @@ const UpdateProductStock = () => {
                                     <input className='w-full px-4 py-2 leading-none text-white bg-[#ff634e] hover:text-white hover:bg-[#1b3e41] mt-3' type="submit" value="Increase Quantity" />
                                 </form>
                             </div>
+                        </div>
+                        <div>
+                            <p>Supplier - {product.supplier}</p>
+                            <p className='text-justify text-gray-500'> <span className='font-bold'>Description:</span> {product.description}</p>
                         </div>
                     </dir>
                 </div>

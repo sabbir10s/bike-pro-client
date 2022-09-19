@@ -9,7 +9,7 @@ const AllProducts = () => {
         return <Loading />
     }
     return (
-        <div className='mx-10 mb-10 flex items-center justify-center'>
+        <div className=' mb-10 flex items-center justify-center container mx-auto'>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-10'>
                 {
                     products.map(product =>

@@ -33,7 +33,7 @@ const SignIn = () => {
         const email = event.target.email.value;
         const password = event.target.password.value;
         await signInWithEmailAndPassword(email, password);
-        const { data } = await axios.post('https://lit-shelf-23459.herokuapp.com/login', { email });
+        const { data } = await axios.post('https://bike-pro-server.onrender.com/login', { email });
         localStorage.setItem('accessToken', data.accessToken)
         navigate(from, { replace: true });
     }

@@ -9,16 +9,20 @@ const Banner = () => {
     const navigate = useNavigate()
 
     return (
-        <div className='mb-20'>
-            <div className="w-full h-[75vh] flex items-center justify-center bg-slate-300">
-                <div className='w-[30%] hidden md:block'>
-                    <img className='w-[350px]' src={bike1} alt="" />
+        <div className='mb-20 px-4 py-16 lg:py-32 bg-slate-300'>
+            <div className=" md:flex md:items-center justify-center container mx-auto ">
+                <div className='md:w-[30%] block py-5 lg:py-0'>
+                    <img className='w-[300px] lg:w-[350px]' src={bike1} alt="" />
                 </div>
 
                 <div className='w-[100%] md:w-[40%]'>
-                    <h1 className='mb-1 font-medium text-[#1b3e41] mx-2 md:mx-0 lg:text-xl md:tex:xl text-center'>It is by riding a bicycle that you learn the contours of a country best, since you heave to sweat up the hills and can coast down them.</h1>
-                    <div className='flex justify-center'>
-                        <button onClick={() => navigate('/inventory')} className='rounded p-2 leading-none text-white text-xl hover:bg-secondary hover:text-white bg-primary mt-4 flex gap-2 '><span>Manage Product</span><AiOutlineArrowRight /></button>
+                    <h1 className='mb-1 font-medium text-[#1b3e41] md:text-center'>Bike Pro is one of the largest wholesale bicycle suppliers. We supply different types of brands of bicycles.  On this website, we manage our all product inventory.</h1>
+                    <div className='flex md:justify-center'>
+                        <button onClick={() => navigate('/menageProducts')} className='rounded-lg leading-none text-white text-xl hover:bg-secondary hover:text-white bg-primary mt-4  '>
+                            <div className='flex gap-2 py-3 px-5'>
+                                <span>Manage Products</span><AiOutlineArrowRight />
+                            </div>
+                        </button>
                     </div>
                 </div>
                 <div className='w-[30%] hidden md:flex md:justify-end'>
