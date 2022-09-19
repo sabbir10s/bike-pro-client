@@ -1,41 +1,48 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import SocialSignIn from '../SocialSignIn/SocialSignIn';
 import Loading from '../../../Shared/Loading/Loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
+import useToken from '../../../Shared/Hooks/useToken';
 
 const SignIn = () => {
     const [
         signInWithEmailAndPassword,
+        user,
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+    const [signInWithFacebook, fbUser, fbLoading, fbError] = useSignInWithFacebook(auth);
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
     const [email, setEmail] = useState('');
     const handleEmailBlur = (e) => {
         setEmail(e.target.value);
     }
-
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from.pathname || "/";
+    const [token] = useToken(user || googleUser || fbUser)
+    const from = location.state?.from?.pathname || "/";
 
-    if (loading || sending) {
+    if (loading || sending || googleLoading || fbLoading) {
         <Loading />
     }
+
+    if (token) {
+        navigate(from, { replace: true });
+    }
+
+    console.log(token);
 
     const handelSignInWithEmail = async event => {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
         await signInWithEmailAndPassword(email, password);
-        const { data } = await axios.post('https://bike-pro-server.onrender.com/login', { email });
-        localStorage.setItem('accessToken', data.accessToken)
-        navigate(from, { replace: true });
     }
     const resetPassword = async () => {
         await sendPasswordResetEmail(email);
@@ -58,7 +65,7 @@ const SignIn = () => {
                     <span className='text-black mt-4 block'>Forget password ? <button onClick={resetPassword} className='text-[#ff634e] font-bold'>Forget</button></span>
                     <span className='text-black mt-4 block'>Dont't have an account <Link to='/signup' className='text-[#ff634e] font-bold'>Sign Up</Link> </span>
                 </form>
-                <SocialSignIn />
+                <SocialSignIn signInWithGoogle={signInWithGoogle} signInWithFacebook={signInWithFacebook} />
             </div>
             <ToastContainer />
         </div>
