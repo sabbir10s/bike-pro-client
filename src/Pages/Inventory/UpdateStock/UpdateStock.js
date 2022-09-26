@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const UpdateProductStock = () => {
+const UpdateStock = () => {
     const { Id } = useParams();
     const [product, setProduct] = useState({});
     const [reload, setIsReload] = useState(true)
@@ -50,22 +50,22 @@ const UpdateProductStock = () => {
             })
     }
     return (
-        <div className=' container mx-auto flex justify-center items-center h-screen'>
+        <div className=' container mx-auto flex justify-center items-center md:h-screen mt-5 md:mt-0'>
             <ToastContainer />
-            <div className='w-full '>
-                <div className='grid grid-cols-3'>
-                    <div className=' col-span-1 flex justify-center items-center border-2 rounded-lg border-primary'>
-                        <img className='w-[250px]' src={product.picture} alt="" />
+            <div className='w-full mx-2 '>
+                <div className='grid gap-5 md:grid-cols-3'>
+                    <div className=' md:col-span-1 flex justify-center items-center border-2 rounded-lg border-primary'>
+                        <img className='md:w-[250px]' src={product.picture} alt="" />
                     </div>
-                    <dir className='col-span-2'>
+                    <dir className='ml-[-35px] lg:ml-0 md:col-span-2'>
                         <p className='text-secondary font-bold mt-2 text-4xl'>{product.product_name}</p>
                         <p className='font-bold text-xl my-2 text-primary'>${product.price}</p>
-                        <div className='flex flex-col lg:flex-row md:flex-row gap-4 my-5'>
-                            <div className='border p-3 w-[100%] lg:w-[50%] md:w-[50%] shadow-lg'>
+                        <div className='flex flex-col md:flex-row gap-4 my-5'>
+                            <div className='border p-3 w-full shadow-lg'>
                                 <div><span className='text-gray-500'>Product Quantity-</span> <span className='text-primary font-bold text-xl'>{product.quantity}</span></div>
                                 <button onClick={handelDelivered} className='px-4 py-2 leading-none text-white bg-[#ff634e] hover:text-white hover:bg-[#1b3e41] mt-4 w-full'>Delivered One</button>
                             </div>
-                            <div className='border p-3  w-[100%] lg:w-[50%] md:w-[50%] shadow-lg'>
+                            <div className='border p-3 w-full  shadow-lg'>
                                 <form onSubmit={handelIncreaseQuantity}>
                                     <input className='w-full block border-2 p-1 border-[#ff634e]' type="number" name='quantity' required placeholder='Restock the Product' />
                                     <input className='w-full px-4 py-2 leading-none text-white bg-[#ff634e] hover:text-white hover:bg-[#1b3e41] mt-3' type="submit" value="Increase Quantity" />
@@ -85,4 +85,4 @@ const UpdateProductStock = () => {
     );
 };
 
-export default UpdateProductStock;
+export default UpdateStock;

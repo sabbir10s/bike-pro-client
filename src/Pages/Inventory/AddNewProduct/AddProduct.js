@@ -34,8 +34,8 @@ const AddProduct = () => {
 
     }
     return (
-        <div className='flex justify-center mt-5'>
-            <div className='border-2 max-w-lg border-primary p-5 rounded-lg shadow-xl'>
+        <div className='container mx-auto flex justify-center mt-5'>
+            <div className='mx-2 w-full md:w-[450px] border-2 border-primary p-5 rounded-lg shadow-xl'>
                 <ToastContainer />
                 <h1 className='text-xl mb-5 font-bold text-primary'>Add New Product</h1>
                 <form onSubmit={handleUpload}>

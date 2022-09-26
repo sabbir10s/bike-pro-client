@@ -10,8 +10,8 @@ import NotFond from './Shared/NotFound/NotFond';
 import PrivateRoute from './Shared/PrivateRoute/PrivateRoute';
 import MenageProducts from './Pages/Inventory/MenageProducts/MenageProducts';
 import MyProduct from './Pages/Inventory/MyProduct/MyProduct';
-import UpdateProductStock from './Pages/Inventory/UpdateStock/UpdateProductStock';
 import AddProduct from './Pages/Inventory/AddNewProduct/AddProduct';
+import UpdateStock from './Pages/Inventory/UpdateStock/UpdateStock';
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -33,10 +33,6 @@ function App() {
             <Route path='/home' element={<Home />} />
             <Route path='/allProducts' element={<AllProducts />} />
 
-            {/* <Route path='/allProducts/:productId' element={<PrivateRoute>
-              <UpdateProduct />
-            </PrivateRoute>} /> */}
-
             <Route path='/myStock' element={<PrivateRoute>
               <MyProduct />
             </PrivateRoute>} />
@@ -46,7 +42,7 @@ function App() {
             </PrivateRoute>} />
 
             <Route path='updateStock/:Id' element={<PrivateRoute>
-              <UpdateProductStock />
+              <UpdateStock />
             </PrivateRoute>} />
 
             <Route path='addProduct' element={<PrivateRoute>

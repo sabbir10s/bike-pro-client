@@ -52,7 +52,7 @@ const ProductsRow = ({ product, products, setProducts, index, reload, setReload 
             </td>
             <td>
 
-                <label onClick={() => setOpenModal(_id)} for="my-modal-6" class="bg-secondary text-base-100 px-3 py-1 rounded cursor-pointer">Update</label>
+                <label onClick={() => setOpenModal(_id)} for="my-modal-6" class="bg-success text-base-100 px-3 py-1 rounded cursor-pointer">Update</label>
                 {
                     openModal && <UpdateProduct products={products} productId={openModal} setOpenModal={setOpenModal} reload={reload} setReload={setReload} />
                 }
