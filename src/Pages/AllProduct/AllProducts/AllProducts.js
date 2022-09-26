@@ -9,8 +9,8 @@ const AllProducts = () => {
         return <Loading />
     }
     return (
-        <div className=' mb-10 flex items-center justify-center container mx-auto'>
-            <div className='grid grid-cols-1 lg:grid-cols-3 gap-10'>
+        <div className='mt-5 flex items-center justify-center container mx-auto'>
+            <div className='grid grid-cols-1 lg:grid-cols-4 gap-10'>
                 {
                     products.map(product =>
                         <ProductCart product={product} key={product._id}></ProductCart>)

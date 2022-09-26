@@ -34,11 +34,10 @@ const AddProduct = () => {
 
     }
     return (
-        <>
-            <h1 className='text-xl mb-5 font-bold text-primary'>Add New Product</h1>
+        <div className='flex justify-center mt-5'>
             <div className='border-2 max-w-lg border-primary p-5 rounded-lg shadow-xl'>
                 <ToastContainer />
-
+                <h1 className='text-xl mb-5 font-bold text-primary'>Add New Product</h1>
                 <form onSubmit={handleUpload}>
                     <div className="relative z-0 w-full mb-6 group">
                         <input type="email" value={user.email} name="email" id='product_name' className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none    focus:outline-none focus:ring-0 focus:border-[#ff634e] peer" placeholder='  ' readOnly required />
@@ -79,7 +78,7 @@ const AddProduct = () => {
                     <input type="submit" className=" cursor-pointer text-white rounded-lg bg-primary hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm w-full px-5 py-2 text-center" value="Upload" />
                 </form>
             </div>
-        </>
+        </div>
     );
 };
 

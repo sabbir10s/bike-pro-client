@@ -6,8 +6,8 @@ const MenageProducts = () => {
     const [products, setProducts] = useProducts([]);
 
     return (
-        <div className='bg-base-100 p-5 rounded-xl'>
-            <h1 className=' rounded text-center text-3xl text-[#ff634e] font-medium mb-5 '>Menage All Products</h1>
+        <div className=' container mx-auto'>
+            <h1 className=' rounded text-center text-3xl text-[#ff634e] font-medium my-5 '>Menage All Products</h1>
 
             <div>
                 {

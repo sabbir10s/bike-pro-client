@@ -50,7 +50,7 @@ const UpdateProductStock = () => {
             })
     }
     return (
-        <div className='flex justify-center items-center'>
+        <div className=' container mx-auto flex justify-center items-center h-screen'>
             <ToastContainer />
             <div className='w-full '>
                 <div className='grid grid-cols-3'>

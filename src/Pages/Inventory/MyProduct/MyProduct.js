@@ -48,13 +48,16 @@ const MyProduct = () => {
                 })
         }
     }
+    if (!myProducts) {
+        return <Loading />
+    }
     return (
-        <div>
-            <p className='text-2xl text-center mb-3'>My Product List</p>
+        <>
             {
-                myProducts.length === 0 ? <Loading></Loading>
+                myProducts.length === 0 ? <div className='h-screen flex justify-center items-center'><h1 className='text-center text-4xl text-gray-400'>No product found yet!</h1></div>
                     :
                     <div>
+                        <p className='text-3xl text-center font-medium text-primary my-5'>My Product List</p>
                         {
                             myProducts.map(product => <div className='w-[95%] md:w-[75%] lg:w-[50%] mx-auto'>
                                 <table className='w-full mb-3'>
@@ -76,7 +79,7 @@ const MyProduct = () => {
                         }
                     </div>
             }
-        </div>
+        </>
     );
 };
 
