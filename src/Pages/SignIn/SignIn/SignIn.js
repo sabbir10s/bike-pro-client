@@ -16,8 +16,8 @@ const SignIn = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
-    const [signInWithFacebook, fbUser, fbLoading, fbError] = useSignInWithFacebook(auth);
+    const [signInWithGoogle, googleUser, googleLoading] = useSignInWithGoogle(auth);
+    const [signInWithFacebook, fbUser, fbLoading] = useSignInWithFacebook(auth);
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
     const [email, setEmail] = useState('');
     const handleEmailBlur = (e) => {
@@ -56,8 +56,8 @@ const SignIn = () => {
             <div className='max-w-[400px] p-5 my-12 bg-white rounded-lg'>
                 <form onSubmit={handelSignInWithEmail}>
                     <span className='text-[#ff634e]  text-3xl'>Sign In</span>
-                    <input onBlur={handleEmailBlur} className=' rounded-md w-full border border-[#ff634e] mt-4 p-2 text-1xl' type="email" name='email' placeholder='Your Email' required />
-                    <input className=' rounded-md w-full border border-[#ff634e] mt-4 p-2 text-1xl' type="password" name='password' placeholder='Your Password' />
+                    <input onBlur={handleEmailBlur} className=' rounded-md w-full border border-[#ff634e] mt-4 p-2 text-1xl' type="email" name='email' defaultValue='user@gmail.com' placeholder='Your Email' required />
+                    <input className=' rounded-md w-full border border-[#ff634e] mt-4 p-2 text-1xl' type="password" name='password' defaultValue='123456' placeholder='Your Password' />
                     {
                         error ? <span className='text-[#ff634e]'>{error?.message}</span> : ""
                     }

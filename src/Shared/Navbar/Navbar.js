@@ -62,7 +62,7 @@ const Navbar = ({ children }) => {
                                             to='/menageProducts'
                                             className='block px-4 py-2 text-sm text-gray-700'
                                         >
-                                            Menage Stocks
+                                            Menage Products
                                         </CustomLink>
                                         <CustomLink
                                             to='/addProduct'

@@ -1,14 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
+import UpdateProduct from './UpdateProduct';
 
-const ProductsRow = ({ product, products, setProducts, index }) => {
+const ProductsRow = ({ product, products, setProducts, index, reload, setReload }) => {
     const { product_name, picture, quantity, price, _id } = product;
-    const navigate = useNavigate()
-    const handleUpdateStock = id => {
-        navigate(`/updateStock/${id}`)
-    }
+    const [openModal, setOpenModal] = useState("");
 
     const handleDelete = id => {
 
@@ -54,13 +51,19 @@ const ProductsRow = ({ product, products, setProducts, index }) => {
 
             </td>
             <td>
+
+                <label onClick={() => setOpenModal(_id)} for="my-modal-6" class="bg-secondary text-base-100 px-3 py-1 rounded cursor-pointer">Update</label>
+                {
+                    openModal && <UpdateProduct products={products} productId={openModal} setOpenModal={setOpenModal} reload={reload} setReload={setReload} />
+                }
+            </td>
+            <td>
                 <button onClick={() => handleDelete(_id)} className='text-[#ff634e] text-2xl hover:text-[#fd1e00]'>
                     <span className='icon'>
                         <RiDeleteBin6Line />
                     </span>
                 </button>
             </td>
-            <td> <button onClick={() => handleUpdateStock(_id)} className='text-sm font-medium text-success hover:underline hover:text-primary'>Update Stock</button> </td>
         </tr>
     );
 };
