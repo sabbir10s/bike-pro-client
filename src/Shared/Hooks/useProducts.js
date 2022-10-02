@@ -4,7 +4,7 @@ const useProducts = () => {
     const [products, setProducts] = useState([]);
     const [reload, setReload] = useState(true)
     useEffect(() => {
-        fetch('http://localhost:5000/product')
+        fetch('https://bike-pro-server.onrender.com/product')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [reload])

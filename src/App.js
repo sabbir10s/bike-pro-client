@@ -24,37 +24,41 @@ const Wrapper = ({ children }) => {
 function App() {
   return (
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
 
-      <Navbar>
-        <Wrapper>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/home' element={<Home />} />
-            <Route path='/allProducts' element={<AllProducts />} />
+      <Wrapper>
+        <Routes>
+          {/* <Route path='/' element={<Home />} /> */}
+          <Route path='/' element={<Home />}>
 
-            <Route path='/myStock' element={<PrivateRoute>
-              <MyProduct />
-            </PrivateRoute>} />
-
-            <Route path='menageProducts' element={<PrivateRoute>
+            <Route index element={<PrivateRoute>
               <MenageProducts />
-            </PrivateRoute>} />
-
-            <Route path='updateStock/:Id' element={<PrivateRoute>
-              <UpdateStock />
             </PrivateRoute>} />
 
             <Route path='addProduct' element={<PrivateRoute>
               <AddProduct />
             </PrivateRoute>} />
 
-            <Route path='/signIn' element={<SignIn />} />
-            <Route path='/signup' element={<SignUp />} />
-            <Route path='*' element={<NotFond />} />
-          </Routes>
-        </Wrapper>
-      </Navbar>
+            <Route path='myStock' element={<PrivateRoute>
+              <MyProduct />
+            </PrivateRoute>} />
+
+          </Route>
+
+          <Route path='/allProducts' element={<AllProducts />} />
+
+
+
+          <Route path='updateStock/:Id' element={<PrivateRoute>
+            <UpdateStock />
+          </PrivateRoute>} />
+
+
+          <Route path='/signIn' element={<SignIn />} />
+          <Route path='/signup' element={<SignUp />} />
+          <Route path='*' element={<NotFond />} />
+        </Routes>
+      </Wrapper>
     </div>
   );
 }
