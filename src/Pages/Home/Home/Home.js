@@ -7,7 +7,7 @@ const Home = () => {
         <div class="drawer drawer-mobile">
             <input id="my-drawer" type="checkbox" class="drawer-toggle" />
             <div class="drawer-content">
-                <div className='bg-base-200 p-8'>
+                <div className='bg-base-200 p-3 lg:p-5'>
                     <Outlet />
                 </div>
             </div>

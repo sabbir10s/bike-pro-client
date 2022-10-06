@@ -43,21 +43,21 @@ const ProductsRow = ({ product, products, setProducts, index, reload, setReload 
 
     return (
         <tr>
-            <td>{index + 1}</td>
-            <td><img className='w-[50px]' src={picture} alt="" /></td>
-            <td >
-                <p className='text-primary font-bold'>{product_name}</p>
-                <span className='text-neutral'> Quantity: {quantity}, Price: ${price}</span>
+            <td className='py-2'>{index + 1}</td>
+            <td className='py-2'><img className='w-[50px]' src={picture} alt="" /></td>
+            <td className='py-2' >
+                <p className='text-neutral font-medium'>{product_name}</p>
+                <span className='text-base-300 text-sm'> Quantity: {quantity}, Price: ${price}</span>
 
             </td>
-            <td>
+            <td className='py-2'>
 
                 <label onClick={() => setOpenModal(_id)} for="my-modal-6" class="bg-success text-base-100 px-3 py-1 rounded cursor-pointer">Update</label>
                 {
                     openModal && <UpdateProduct products={products} productId={openModal} setOpenModal={setOpenModal} reload={reload} setReload={setReload} />
                 }
             </td>
-            <td>
+            <td className='py-2'>
                 <button onClick={() => handleDelete(_id)} className='text-[#ff634e] text-2xl hover:text-[#fd1e00]'>
                     <span className='icon'>
                         <RiDeleteBin6Line />
