@@ -30,8 +30,9 @@ function App() {
         <Routes>
           {/* <Route path='/' element={<Home />} /> */}
           <Route path='/' element={<Home />}>
-
-            <Route index element={<PrivateRoute>
+            <Route index
+              element={<AllProducts />} />
+            <Route path='menage' element={<PrivateRoute>
               <MenageProducts />
             </PrivateRoute>} />
 
@@ -42,16 +43,11 @@ function App() {
             <Route path='myStock' element={<PrivateRoute>
               <MyProduct />
             </PrivateRoute>} />
-
+            <Route path='updateStock/:Id' element={<PrivateRoute>
+              <UpdateStock />
+            </PrivateRoute>} />
           </Route>
 
-          <Route path='/allProducts' element={<AllProducts />} />
-
-
-
-          <Route path='updateStock/:Id' element={<PrivateRoute>
-            <UpdateStock />
-          </PrivateRoute>} />
 
 
           <Route path='/signIn' element={<SignIn />} />

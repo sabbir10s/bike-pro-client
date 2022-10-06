@@ -6,7 +6,7 @@ const MenageProducts = () => {
     const [products, setProducts, reload, setReload] = useProducts([]);
     return (
         <div className=' container mx-auto'>
-            <h1 className='text-xl text-black font-medium pb-3'>Menage All Products</h1>
+            <h1 className='text-xl font-medium pb-3'>Menage All Products</h1>
 
             <div>
                 {

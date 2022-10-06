@@ -50,16 +50,16 @@ const UpdateStock = () => {
             })
     }
     return (
-        <div className=' container mx-auto flex justify-center items-center md:h-screen mt-5 md:mt-0'>
+        <div className=''>
             <ToastContainer />
-            <div className='w-full mx-2 '>
+            <div className='w-full mx-2 bg-base-100 p-5 h-[90vh] rounded-lg'>
                 <div className='grid gap-5 md:grid-cols-3'>
                     <div className=' md:col-span-1 flex justify-center items-center border-2 rounded-lg border-primary'>
                         <img className='md:w-[250px]' src={product.picture} alt="" />
                     </div>
                     <dir className='ml-[-35px] lg:ml-0 md:col-span-2'>
                         <p className='text-secondary font-bold mt-2 text-4xl'>{product.product_name}</p>
-                        <p className='font-bold text-xl my-2 text-primary'>${product.price}</p>
+                        <p className='font-bold text-3xl my-2 text-primary'>${product.price}</p>
                         <div className='flex flex-col md:flex-row gap-4 my-5'>
                             <div className='border p-3 w-full shadow-lg'>
                                 <div><span className='text-gray-500'>Product Quantity-</span> <span className='text-primary font-bold text-xl'>{product.quantity}</span></div>

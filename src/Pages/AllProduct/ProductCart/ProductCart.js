@@ -8,16 +8,16 @@ const ProductCart = ({ product }) => {
         navigate(`/updateStock/${_id}`)
     }
     return (
-        <div className='p-5 border shadow-lg hover:border-primary hover:shadow-lg hover:shadow-primary/50 rounded-xl cursor-pointer'>
-            <div>
-                <img className='h-[150px] w-[150px] mx-auto' src={picture} alt="" />
-                <p className='font-bold text-secondary mt-3'>{product_name}</p>
-                <p className='font-medium text-primary '>Price: ${price}</p>
-                <p className='text-secondary '>Quantity: {quantity}</p>
+        <div onClick={() => handleUpdateStock(_id)} className='p-5 border border-white hover:border-primary hover:shadow-lg hover:shadow-primary/50 rounded-xl cursor-pointer'>
+            <div className='w-[180px] h-[180px] flex justify-center items-center'>
+                <img src={picture} alt="" />
             </div>
 
             <div>
-                <button onClick={() => handleUpdateStock(_id)} className='px-4 py-2 rounded leading-none text-white bg-[#ff634e] hover:text-white hover:bg-[#1b3e41] mt-2'>Update Stock</button>
+                <p className='font-medium text-secondary mt-3 text-sm'>{product_name}</p>
+                <p className='text-primary font-bold text-xl'>${price}</p>
+                <p className='text-secondary text-sm'>Quantity: {quantity}</p>
+                <button className='px-4 py-2 rounded leading-none text-white bg-[#ff634e] hover:text-white hover:bg-[#1b3e41] mt-2 w-full'>Update Stock</button>
             </div>
 
         </div>

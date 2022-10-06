@@ -9,12 +9,15 @@ const AllProducts = () => {
         return <Loading />
     }
     return (
-        <div className='mt-5 flex items-center justify-center container mx-auto'>
-            <div className='grid grid-cols-1 lg:grid-cols-4 gap-10'>
-                {
-                    products.map(product =>
-                        <ProductCart product={product} key={product._id}></ProductCart>)
-                }
+        <div>
+            <h1 className='text-xl font-medium text-left pb-3'>All Products</h1>
+            <div className='flex items-center justify-center container mx-auto bg-base-100 p-5 rounded-lg'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
+                    {
+                        products.map(product =>
+                            <ProductCart product={product} key={product._id}></ProductCart>)
+                    }
+                </div>
             </div>
         </div>
     );

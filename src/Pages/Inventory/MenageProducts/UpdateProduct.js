@@ -3,7 +3,7 @@ import { AiFillCloseCircle } from 'react-icons/ai';
 
 const UpdateProduct = ({ products, productId, setOpenModal, reload, setReload }) => {
     const product = products?.find((product) => product?._id === productId)
-    const { _id, product_name, quantity, price, picture } = product
+    const { _id, product_name, quantity, price } = product
     const getName = useRef()
     const getQuantity = useRef()
     const getPrice = useRef()
@@ -56,8 +56,6 @@ const UpdateProduct = ({ products, productId, setOpenModal, reload, setReload })
                         <input className='text-left p-1 rounded border border-primary w-full' type="number" name='quantity' defaultValue={quantity} ref={getQuantity} />
                         <label className='mt-2' htmlFor="price">Price</label>
                         <input className='mt-2 text-left p-1 rounded border border-primary w-full' type="number" name='price' defaultValue={price} ref={getPrice} />
-                        <label className='mt-2' htmlFor="image">Image Url</label>
-                        <input className='mt-2 text-left p-1 rounded border border-primary w-full' type="text" name='image' defaultValue={picture} ref={getPicture} />
                     </div>
                     <div class="modal-action">
                         <label onClick={handleSubmitData} for="my-modal-6" class="btn"> Submit</label>
