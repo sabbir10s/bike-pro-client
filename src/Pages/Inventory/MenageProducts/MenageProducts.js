@@ -6,13 +6,13 @@ const MenageProducts = () => {
     const [products, setProducts, reload, setReload] = useProducts([]);
     return (
         <div className=' container mx-auto'>
-            <h1 className='text-xl font-medium pb-3'>Menage All Products</h1>
+            <h1 className='text-xl font-medium text-left p-3 md:p-5'>Menage All Products</h1>
 
             <div>
                 {
                     products.length === 0 ? <Loading></Loading>
                         :
-                        <div className="overflow-x-auto w-full bg-base-100 p-3 rounded-t-lg">
+                        <div className="overflow-x-auto w-full bg-base-100 rounded-t-lg p-3 md:mx-5 ">
                             <div className='py-3'>
                                 <input className='border border-base-300 rounded px-2 py-1 w-full lg:w-1/3' type="text" placeholder='Search' />
                             </div>

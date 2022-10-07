@@ -10,9 +10,9 @@ const AllProducts = () => {
     }
     return (
         <div>
-            <h1 className='text-xl font-medium text-left pb-3'>All Products</h1>
-            <div className='flex items-center justify-center container mx-auto bg-base-100 p-5 rounded-lg'>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
+            <h1 className='text-xl font-medium text-left p-3 md:p-5'>All Products</h1>
+            <div className='bg-base-100 rounded-lg p-5 md:mx-5'>
+                <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center justify-items-center container mx-auto'>
                     {
                         products.map(product =>
                             <ProductCart product={product} key={product._id}></ProductCart>)
