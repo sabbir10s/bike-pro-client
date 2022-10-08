@@ -8,15 +8,13 @@ const SocialSignIn = ({ signInWithGoogle, signInWithFacebook }) => {
 
 
     return (
-        <div>
+        <div className='flex gap-4 justify-center items-center'>
 
-            <button onClick={() => signInWithGoogle()} className='rounded-md border border-[#ff634e] hover:shadow-lg flex items-center justify-center gap-2 w-full cursor-pointer mt-4 p-2 text-1xl'>
+            <button onClick={() => signInWithGoogle()} className='rounded-full border border-primary hover:shadow-lg flex items-center justify-center cursor-pointer p-2'>
                 <img className="w-[30px]" src={googleLogo} alt="" />
-                <span>Sign In With Google</span>
             </button>
-            <button onClick={() => signInWithFacebook()} className='rounded-md border border-[#ff634e] hover:shadow-lg flex items-center justify-center gap-2 w-full cursor-pointer mt-2 p-2 text-1xl'>
+            <button onClick={() => signInWithFacebook()} className='rounded-full border border-primary hover:shadow-lg flex items-center justify-center cursor-pointer p-2'>
                 <img className="w-[30px]" src={facebookLogo} alt="" />
-                <span>Sign In With Facebook</span>
             </button>
 
 

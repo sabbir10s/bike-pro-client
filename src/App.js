@@ -12,6 +12,7 @@ import MenageProducts from './Pages/Inventory/MenageProducts/MenageProducts';
 import MyProduct from './Pages/Inventory/MyProduct/MyProduct';
 import AddProduct from './Pages/Inventory/AddNewProduct/AddProduct';
 import UpdateStock from './Pages/Inventory/UpdateStock/UpdateStock';
+import { ToastContainer } from 'react-toastify';
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -22,10 +23,15 @@ const Wrapper = ({ children }) => {
 }
 
 function App() {
+  const location = useLocation();
+  console.log(location.pathname);
   return (
     <div>
-      <Navbar />
+      {
+        location.pathname === '/signIn' || location.pathname === '/signup' ? <></> : <Navbar />
+      }
 
+      <ToastContainer />
       <Wrapper>
         <Routes>
           {/* <Route path='/' element={<Home />} /> */}
