@@ -4,9 +4,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 import { BsImageFill } from 'react-icons/bs';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 const AddProduct = () => {
     const [user] = useAuthState(auth);
+    const navigate = useNavigate()
     const handleUpload = async (event) => {
         event.preventDefault()
         const email = user.email;
@@ -31,7 +33,7 @@ const AddProduct = () => {
                     const img = result.data.url;
                     const product = { email, product_name, supplier, price, quantity, picture: img, description };
                     // send to your database.
-                    fetch('https://bike-pro-server.onrender.com/product', {
+                    fetch('http://localhost:5000/product', {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json',
@@ -43,6 +45,7 @@ const AddProduct = () => {
                         .then(inserted => {
                             if (inserted.insertedId) {
                                 toast.success('Product added successfully');
+                                navigate('/myStock')
                                 event.target.reset();
                             }
                             else {

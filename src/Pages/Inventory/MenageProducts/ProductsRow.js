@@ -18,7 +18,7 @@ const ProductsRow = ({ product, products, setProducts, index, reload, setReload 
         })
             .then(willDelete => {
                 if (willDelete) {
-                    const url = `https://bike-pro-server.onrender.com/product/${id}`
+                    const url = `http://localhost:5000/product/${id}`
                     fetch(url, {
                         method: "DELETE"
                     })

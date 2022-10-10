@@ -9,12 +9,13 @@ import auth from '../../../firebase.init';
 
 const MyProduct = () => {
     const [user] = useAuthState(auth);
+    const email = user?.email;
     const [myProducts, setMyProducts] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
         const getProducts = async () => {
-            const email = user.email;
-            const url = `https://bike-pro-server.onrender.com/myproduct?email=${email}`
+
+            const url = `http://localhost:5000/myproduct?email=${email}`
             try {
                 const { data } = await axios.get(url, {
                     headers: {
@@ -37,7 +38,7 @@ const MyProduct = () => {
     const handleDelete = id => {
         const proceed = window.confirm("Are you sure? ")
         if (proceed) {
-            const url = `https://bike-pro-server.onrender.com/product/${id}`
+            const url = `http://localhost:5000/product/${id}`
             fetch(url, {
                 method: "DELETE"
             })
@@ -48,7 +49,7 @@ const MyProduct = () => {
                 })
         }
     }
-    if (!myProducts) {
+    if (myProducts.length === 0) {
         return <Loading />
     }
     return (
@@ -57,26 +58,29 @@ const MyProduct = () => {
                 myProducts.length === 0 ? <div className='h-screen flex justify-center items-center'><h1 className='text-center text-4xl text-gray-400'>No product found yet!</h1></div>
                     :
                     <div>
-                        <p className='text-3xl text-center font-medium text-primary my-5'>My Product List</p>
-                        {
-                            myProducts.map(product => <div className='w-[95%] md:w-[75%] lg:w-[50%] mx-auto'>
-                                <table className='w-full mb-3'>
-                                    <tr className='border border-[#ff634e]'>
-                                        <td className='py-5 px-2 w-[15%]'><img className='w-[50px] mx-auto' src={product.picture} alt="" /></td>
-                                        <td className=' py-5 px-2 '><p>{product.product_name}</p></td>
-                                        <td className=' py-5 px-2 w-[15%]'><p>{product.quantity}</p></td>
-                                        <td className=' py-5 px-2 w-[15%] text-center'> <p>${product.price}</p></td>
-                                        <td className=' py-5 px-2 w-[12%]'>
-                                            <button onClick={() => handleDelete(product._id)} className='text-[#ff634e] text-2xl hover:text-[#fd1e00]'>
-                                                <span className='icon'>
-                                                    <RiDeleteBin6Line />
-                                                </span>
+                        <h1 className='text-xl font-medium text-left p-3 md:p-5'>My Product List</h1>
+                        <div className='bg-base-100 rounded-lg p-5 md:mx-5'>
+                            <div className='grid grid-cols-4 gap-5'>
+                                {
+                                    myProducts.map(product => <div className='border border-primary rounded-lg shadow-md p-5 hover:shadow-primary cursor-pointer'>
+                                        <div className='flex justify-end'>
+                                            <button onClick={() => handleDelete(product._id)} className='text-error text-xl hover:text-[#fd1e00]'>
+                                                <RiDeleteBin6Line />
                                             </button>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>)
-                        }
+                                        </div>
+                                        <div>
+                                            <img className='w-[180px] mx-auto' src={product.picture} alt="" />
+
+                                        </div>
+                                        <div className='mt-3'>
+                                            <p className='text-sm'>{product.product_name}</p>
+                                            <p className='text-sm'>Quantity: {product.quantity} & Price: ${product.price}</p>
+                                            <p ></p>
+                                        </div>
+                                    </div>)
+                                }
+                            </div>
+                        </div>
                     </div>
             }
         </>

@@ -17,7 +17,7 @@ const UpdateProduct = ({ products, productId, setOpenModal, reload, setReload })
         const picture = getPicture.current.value
         const product = { product_name, quantity, price, picture }
         console.log(product);
-        const url = `https://bike-pro-server.onrender.com/productInfo/${_id}`;
+        const url = `http://localhost:5000/productInfo/${_id}`;
         fetch(url, {
             method: "PUT",
             headers: {

@@ -6,7 +6,7 @@ const useToken = (user) => {
         const email = user?.user?.email;
         const currentUser = { email: email }
         if (user) {
-            fetch(`https://bike-pro-server.onrender.com/login`, {
+            fetch(`http://localhost:5000/login`, {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
