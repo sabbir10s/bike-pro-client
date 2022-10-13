@@ -1,7 +1,6 @@
 import { useLayoutEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
-import AllProducts from './Pages/AllProduct/AllProducts/AllProducts';
 import Home from './Pages/Home/Home/Home';
 import SignIn from './Pages/SignIn/SignIn/SignIn';
 import SignUp from './Pages/SignIn/SignUp/SignUp';
@@ -13,6 +12,7 @@ import MyProduct from './Pages/Inventory/MyProduct/MyProduct';
 import AddProduct from './Pages/Inventory/AddNewProduct/AddProduct';
 import UpdateStock from './Pages/Inventory/UpdateStock/UpdateStock';
 import { ToastContainer } from 'react-toastify';
+import AllProducts from './Pages/AllProduct/AllProducts/AllProducts';
 
 const Wrapper = ({ children }) => {
   const location = useLocation();

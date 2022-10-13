@@ -49,9 +49,7 @@ const MyProduct = () => {
                 })
         }
     }
-    if (myProducts.length === 0) {
-        return <Loading />
-    }
+
     return (
         <>
             {

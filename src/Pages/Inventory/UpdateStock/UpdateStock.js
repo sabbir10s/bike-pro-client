@@ -66,12 +66,12 @@ const UpdateStock = () => {
                             <div className='flex flex-col md:flex-row gap-4 my-5'>
                                 <div className='border p-3 w-full shadow-lg'>
                                     <div><span className='text-gray-500'>Product Quantity-</span> <span className='text-primary font-bold text-xl'>{product.quantity}</span></div>
-                                    <button onClick={handelDelivered} className='px-4 py-2 leading-none text-white bg-primary hover:text-white hover:bg-[#1b3e41] mt-4 w-full'>Delivered One</button>
+                                    <button onClick={handelDelivered} className='px-4 py-2 leading-none text-white bg-primary hover:text-white hover:bg-secondary mt-4 w-full'>Delivered One</button>
                                 </div>
                                 <div className='border p-3 w-full  shadow-lg'>
                                     <form onSubmit={handelIncreaseQuantity}>
                                         <input className='w-full block border-2 p-1 border-primary' type="number" name='quantity' required placeholder='Restock the Product' />
-                                        <input className='w-full px-4 py-2 leading-none text-white bg-primary hover:text-white hover:bg-[#1b3e41] mt-3' type="submit" value="Increase Quantity" />
+                                        <input className='w-full px-4 py-2 leading-none text-white bg-primary hover:text-white hover:bg-secondary mt-3 cursor-pointer' type="submit" value="Increase Quantity" />
                                     </form>
                                 </div>
                             </div>

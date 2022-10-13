@@ -13,9 +13,6 @@ const MenageProducts = () => {
                     products.length === 0 ? <Loading></Loading>
                         :
                         <div className="overflow-x-auto w-full bg-base-100 rounded-t-lg p-3 md:mx-5 ">
-                            <div className='py-3'>
-                                <input className='border border-base-300 rounded px-2 py-1 w-full lg:w-1/3' type="text" placeholder='Search' />
-                            </div>
                             <table className="table w-full">
                                 <thead>
                                     <tr>
