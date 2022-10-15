@@ -33,7 +33,7 @@ const AddProduct = () => {
                     const img = result.data.url;
                     const product = { email, product_name, supplier, price, quantity, picture: img, description };
                     // send to your database.
-                    fetch('http://localhost:5000/product', {
+                    fetch('https://bike-pro-server.onrender.com/product', {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json',

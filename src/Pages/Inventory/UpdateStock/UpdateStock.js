@@ -9,7 +9,7 @@ const UpdateStock = () => {
     const [product, setProduct] = useState({});
     const [reload, setIsReload] = useState(true)
     useEffect(() => {
-        fetch(`http://localhost:5000/product/${Id}`)
+        fetch(`https://bike-pro-server.onrender.com/product/${Id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [Id, reload])
@@ -19,7 +19,7 @@ const UpdateStock = () => {
         event.preventDefault();
         const inputQuantity = event.target.quantity.value;
         const quantity = parseInt(inputQuantity) + product.quantity;
-        fetch(`http://localhost:5000/product/${Id}`, {
+        fetch(`https://bike-pro-server.onrender.com/product/${Id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
@@ -36,7 +36,7 @@ const UpdateStock = () => {
     }
     const handelDelivered = () => {
         const quantity = product.quantity - 1;
-        fetch(`http://localhost:5000/product/${Id}`, {
+        fetch(`https://bike-pro-server.onrender.com/product/${Id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

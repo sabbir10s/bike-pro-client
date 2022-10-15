@@ -15,8 +15,8 @@ const ProductCart = ({ product }) => {
 
             <div>
                 <p className='font-medium text-secondary mt-3 text-sm'>{product_name}</p>
-                <p className='text-primary font-bold text-xl'>${price}</p>
-                <p className='text-secondary text-sm'>Quantity: {quantity}</p>
+                <p className='text-primary font-bold text-lg'>{quantity} Available</p>
+                <p className='text-secondary text-sm'>${price}</p>
                 <button className='px-4 py-2 rounded leading-none text-white bg-secondary hover:text-white hover:bg-primary mt-2 w-full'>Update Stock</button>
             </div>
 

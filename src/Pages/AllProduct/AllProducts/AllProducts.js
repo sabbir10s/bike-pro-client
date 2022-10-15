@@ -3,7 +3,7 @@ import { useState } from 'react';
 import useProducts from '../../../Shared/Hooks/useProducts';
 import Loading from '../../../Shared/Loading/Loading';
 import ProductCart from '../ProductCart/ProductCart';
-
+import './All Products.css'
 const AllProducts = () => {
     const [products] = useProducts([]);
     const [searchText, setSearchText] = useState("")
@@ -21,7 +21,15 @@ const AllProducts = () => {
         setSearchText(searchTerm);
 
     }
+    const [quantity, setQuantity] = useState(500);
 
+    // Triggered when the value gets updated while scrolling the slider:
+    const handleInput = (e) => {
+        console.log(e.target.value);
+        setQuantity(e.target.value);
+    }
+
+    console.log(products);
     if (products.length === 0) {
         return <Loading />
     }
@@ -30,8 +38,14 @@ const AllProducts = () => {
         <div>
             <h1 className='text-xl font-medium text-left p-3 md:p-5'>All Products</h1>
             <div className='bg-base-100 rounded-lg p-5 md:mx-5 relative'>
-                <input value={searchText} onChange={onChange} className='w-1/2 border border-primary py-1 pl-5 rounded-l-full' autoComplete='off' type="text" name='search' placeholder='search' />
-                <button onClick={() => onSearch(searchText)} className='bg-primary px-4 py-1 border border-primary text-white rounded-r-full'>Search</button>
+                <div className='grid grid-cols-2 gap-10 items-center'>
+                    <input value={searchText} onChange={onChange} className='w-full border border-primary py-1 pl-5 rounded-full' autoComplete='off' type="text" name='search' placeholder='Search' />
+
+                    <div>
+                        <input className='w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider' type="range" onInput={handleInput} min="0" max="1000" defaultValue={quantity} />
+                        <h1>Available quantity less then: <span className='text-primary font-bold'>{quantity}</span></h1>
+                    </div>
+                </div>
                 <div className='absolute flex flex-col bg-base-100 w-1/2 shadow-xl px-5'>
                     {
                         products.filter(item => {
@@ -48,10 +62,10 @@ const AllProducts = () => {
 
                 <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center justify-items-center container mx-auto mt-10'>
                     {
-                        searchText ? result.map(product =>
+                        searchText.length > 4 ? result.map(product =>
                             <ProductCart product={product} key={product._id}></ProductCart>)
                             :
-                            products.map(product =>
+                            products.filter(product => { return product.quantity < parseInt(quantity, 10) }).map(product =>
                                 <ProductCart product={product} key={product._id}></ProductCart>)
                     }
 

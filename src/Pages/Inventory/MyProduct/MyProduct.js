@@ -15,7 +15,7 @@ const MyProduct = () => {
     useEffect(() => {
         const getProducts = async () => {
 
-            const url = `http://localhost:5000/myproduct?email=${email}`
+            const url = `https://bike-pro-server.onrender.com/myproduct?email=${email}`
             try {
                 const { data } = await axios.get(url, {
                     headers: {
@@ -38,7 +38,7 @@ const MyProduct = () => {
     const handleDelete = id => {
         const proceed = window.confirm("Are you sure? ")
         if (proceed) {
-            const url = `http://localhost:5000/product/${id}`
+            const url = `https://bike-pro-server.onrender.com/product/${id}`
             fetch(url, {
                 method: "DELETE"
             })
