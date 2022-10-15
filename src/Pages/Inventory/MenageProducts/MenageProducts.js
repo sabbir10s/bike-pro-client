@@ -12,34 +12,13 @@ const MenageProducts = () => {
                 {
                     products.length === 0 ? <Loading></Loading>
                         :
-                        <div className="overflow-x-auto w-full bg-base-100 rounded-t-lg p-3 md:mx-5 ">
-                            <table className="table w-full">
-                                <thead>
-                                    <tr>
-                                        <th className='text-black bg-base-200 rounded-t-none'>No</th>
-                                        <th className='text-black bg-base-200 rounded-t-none'>Picture</th>
-                                        <th className='text-black bg-base-200 rounded-t-none'>Details</th>
-                                        <th className='text-black bg-base-200 rounded-t-none'>Update Product</th>
-                                        <th className='text-black bg-base-200 rounded-t-none'>Delete</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {
-                                        products.map((product, index) => <ProductsRow product={product} products={products} index={index} key={product._id} setProducts={setProducts} reload={reload} setReload={setReload} />)
-                                    }
-                                </tbody>
+                        <div className="bg-base-100 rounded-t-lg p-5 md:mx-5 flex justify-center">
+                            <div>
+                                {
+                                    products.map((product, index) => <ProductsRow product={product} products={products} index={index} key={product._id} setProducts={setProducts} reload={reload} setReload={setReload} />)
+                                }
 
-
-                                <tfoot>
-                                    <tr>
-                                        <th className='text-base-100 bg-base-300'>No</th>
-                                        <th className='text-base-100 bg-base-300'>Picture</th>
-                                        <th className='text-base-100 bg-base-300'>Details</th>
-                                        <th className='text-base-100 bg-base-300'>Update Product</th>
-                                        <th className='text-base-100 bg-base-300'>Delete</th>
-                                    </tr>
-                                </tfoot>
-                            </table>
+                            </div>
                         </div>
                 }
             </div>

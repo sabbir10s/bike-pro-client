@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { RiDeleteBin6Line } from 'react-icons/ri';
+import { BsPencilSquare } from 'react-icons/bs';
 import swal from 'sweetalert';
 import UpdateProduct from './UpdateProduct';
 
@@ -42,29 +43,28 @@ const ProductsRow = ({ product, products, setProducts, index, reload, setReload 
     }
 
     return (
-        <tr>
-            <td className='py-2'>{index + 1}</td>
-            <td className='py-2'><img className='w-[50px]' src={picture} alt="" /></td>
-            <td className='py-2' >
+        <div className='md:grid md:grid-cols-4  gap-5 lg:gap-14 items-center justify-center border rounded-lg md:rounded-none m-5 lg:m-0 md:border-t-0 md:border-x-0 md:border-b p-5'>
+            <div className='md:col-span-1'><img className='mx-auto md:mx-0 w-1/2 md:w-1/3' src={picture} alt="" /></div>
+            <div className='md:col-span-2 py-3 lg:py-0' >
                 <p className='text-neutral font-medium'>{product_name}</p>
                 <span className='text-base-300 text-sm'> Quantity: {quantity}, Price: ${price}</span>
 
-            </td>
-            <td className='py-2'>
-
-                <label onClick={() => setOpenModal(_id)} for="my-modal-6" class="bg-success text-base-100 px-3 py-1 rounded cursor-pointer">Update</label>
-                {
-                    openModal && <UpdateProduct products={products} productId={openModal} setOpenModal={setOpenModal} reload={reload} setReload={setReload} />
-                }
-            </td>
-            <td className='py-2'>
-                <button onClick={() => handleDelete(_id)} className='text-[#ff634e] text-2xl hover:text-[#fd1e00]'>
-                    <span className='icon'>
-                        <RiDeleteBin6Line />
+            </div>
+            <div className='md:py-0 md:col-span-1 flex items-center gap-14'>
+                <label onClick={() => setOpenModal(_id)} for="my-modal-6" className="text-primary cursor-pointer flex items-center gap-1 relative"><span>Update</span><BsPencilSquare /></label>
+                <div className=' absolute top-0'>
+                    {
+                        openModal && <UpdateProduct products={products} productId={openModal} setOpenModal={setOpenModal} reload={reload} setReload={setReload} />
+                    }
+                </div>
+                <button onClick={() => handleDelete(_id)} className='text-[#ff634e] hover:text-[#fd1e00] flex items-center gap-1'>
+                    <span>
+                        Delete
                     </span>
+                    <RiDeleteBin6Line />
                 </button>
-            </td>
-        </tr>
+            </div>
+        </div>
     );
 };
 
