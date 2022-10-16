@@ -50,16 +50,16 @@ const SignUp = () => {
                     <form onSubmit={creatUser}>
                         <h2 className='text-primary text-3xl text-center font-medium'>Welcome</h2>
                         <p className='text-primary/70 text-xl text-center'>Sign up your account</p>
-                        <p className='mt-5 text-center'>Already have an account <Link to='/signIn' className='text-primary font-bold'>Sign In</Link> </p>
+
                         <input className='rounded-md w-full border border-primary mt-4 p-2 text-1xl' type="text" name='name' placeholder='Your Name' required />
                         <input className='rounded-md w-full border border-primary mt-4 p-2 text-1xl' type="email" name='email' placeholder='Your Email' required />
                         <input className='rounded-md w-full border border-primary mt-4 p-2 text-1xl' type="password" name='password' placeholder='Password' required />
                         {
                             error ? <span className='text-primary'>{error?.message}</span> : ""
                         }
-                        <input type="submit" className='rounded-md bg-primary hover:shadow-lg w-full text-white cursor-pointer mt-4 p-2 text-1xl' value="Sign UP" />
-
+                        <input type="submit" className='rounded-md bg-primary hover:shadow-lg w-full text-white cursor-pointer mt-4 p-2 text-1xl' value="Sign Up" />
                     </form>
+                    <p className='mt-5 text-right'><Link to='/signIn' className='text-primary font-bold'>Sign In</Link> </p>
                     <div className='flex items-center gap-1 my-5'>
                         <div className='border w-full'></div>
                         <p className='w-full text-center uppercase text-base-300'>Or sign up with</p>

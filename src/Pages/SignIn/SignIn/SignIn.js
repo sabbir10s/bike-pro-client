@@ -67,16 +67,19 @@ const SignIn = () => {
                         <form onSubmit={handelSignInWithEmail}>
                             <h2 className='text-primary text-3xl text-center font-medium'>Welcome Back</h2>
                             <p className='text-primary/70 text-xl text-center'>Please sign in your account</p>
-                            <p className='text-center mt-6'>Dont't have an account <Link to='/signup' className='text-primary font-bold'>Sign Up</Link> </p>
                             <input onBlur={handleEmailBlur} className=' rounded-md w-full border border-primary mt-4 p-2 text-1xl' type="email" name='email' defaultValue='user@gmail.com' placeholder='Your Email' required />
                             <input className=' rounded-md w-full border border-primary mt-4 p-2 text-1xl' type="password" name='password' defaultValue='123456' placeholder='Your Password' autoFocus={true} />
                             {
                                 error ? <span className='text-primary'>{error?.message}</span> : ""
                             }
                             <input type="submit" className=' rounded-md bg-primary hover:shadow-lg w-full text-white cursor-pointer mt-4 p-2 text-1xl' value="Sign In" />
-                            <p className='mt-4 text-right'>Forget password ? <button onClick={resetPassword} className='text-primary font-bold'>Forget</button></p>
-
                         </form>
+                        <div className='flex justify-between mt-4'>
+                            <button onClick={resetPassword} className='hover:text-primary hover:underline '>Forget password?</button>
+                            <div>
+                                <Link to='/signup' className='text-primary font-bold'>Sign Up</Link>
+                            </div>
+                        </div>
                         <div className='flex items-center gap-1 my-5'>
                             <div className='border w-full'></div>
                             <p className='w-full text-center uppercase text-base-300'>Or login with</p>
