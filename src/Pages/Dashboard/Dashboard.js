@@ -1,8 +1,8 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import CustomLink from '../../../Shared/CustomLink/CustomLink';
+import CustomLink from '../../Shared/CustomLink/CustomLink';
 
-const Home = () => {
+const Dashboard = () => {
     return (
         <div class="drawer drawer-mobile">
             <input id="my-drawer" type="checkbox" class="drawer-toggle" />
@@ -24,4 +24,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Dashboard;

@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import useProducts from '../../../Shared/Hooks/useProducts';
 import Loading from '../../../Shared/Loading/Loading';
-import ProductCart from '../ProductCart/ProductCart';
+import ProductCart from './ProductCart';
 import './All Products.css'
 const AllProducts = () => {
     const [products] = useProducts([]);
@@ -38,7 +38,7 @@ const AllProducts = () => {
         <div>
             <h1 className='text-xl font-medium text-left p-3 md:p-5'>All Products</h1>
             <div className='bg-base-100 rounded-lg p-5 md:mx-5 relative'>
-                <div className='grid grid-cols-2 gap-10 items-center'>
+                <div className='grid md:grid-cols-2 gap-10 items-center'>
                     <input value={searchText} onChange={onChange} className='w-full border border-primary py-1 pl-5 rounded-full' autoComplete='off' type="text" name='search' placeholder='Search' />
 
                     <div>

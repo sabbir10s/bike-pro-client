@@ -1,18 +1,18 @@
 import { useLayoutEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
-import Home from './Pages/Home/Home/Home';
-import SignIn from './Pages/SignIn/SignIn/SignIn';
-import SignUp from './Pages/SignIn/SignUp/SignUp';
 import Navbar from './Shared/Navbar/Navbar';
 import NotFond from './Shared/NotFound/NotFond';
 import PrivateRoute from './Shared/PrivateRoute/PrivateRoute';
-import MenageProducts from './Pages/Inventory/MenageProducts/MenageProducts';
-import MyProduct from './Pages/Inventory/MyProduct/MyProduct';
-import AddProduct from './Pages/Inventory/AddNewProduct/AddProduct';
-import UpdateStock from './Pages/Inventory/UpdateStock/UpdateStock';
 import { ToastContainer } from 'react-toastify';
-import AllProducts from './Pages/AllProduct/AllProducts/AllProducts';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import AllProducts from './Pages/Dashboard/AllProducts/AllProducts';
+import MenageProducts from './Pages/Dashboard/MenageProducts/MenageProducts';
+import AddProduct from './Pages/Dashboard/AddNewProduct/AddProduct';
+import MyProduct from './Pages/Dashboard/MyProduct/MyProduct';
+import UpdateStock from './Shared/UpdateStock/UpdateStock';
+import SignIn from './Pages/Authentication/SignIn/SignIn';
+import SignUp from './Pages/Authentication/SignUp/SignUp';
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -34,7 +34,7 @@ function App() {
       <Wrapper>
         <Routes>
           {/* <Route path='/' element={<Home />} /> */}
-          <Route path='/' element={<Home />}>
+          <Route path='/' element={<Dashboard />}>
             <Route index
               element={<PrivateRoute><AllProducts /></PrivateRoute>} />
             <Route path='menage' element={<PrivateRoute>
