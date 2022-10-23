@@ -13,6 +13,7 @@ import MyProduct from './Pages/Dashboard/MyProduct/MyProduct';
 import UpdateStock from './Shared/UpdateStock/UpdateStock';
 import SignIn from './Pages/Authentication/SignIn/SignIn';
 import SignUp from './Pages/Authentication/SignUp/SignUp';
+import Home from './Pages/Dashboard/Home/Home';
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -36,6 +37,8 @@ function App() {
           {/* <Route path='/' element={<Home />} /> */}
           <Route path='/' element={<Dashboard />}>
             <Route index
+              element={<PrivateRoute><Home /></PrivateRoute>} />
+            <Route path='products'
               element={<PrivateRoute><AllProducts /></PrivateRoute>} />
             <Route path='menage' element={<PrivateRoute>
               <MenageProducts />

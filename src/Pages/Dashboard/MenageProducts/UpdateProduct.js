@@ -45,10 +45,10 @@ const UpdateProduct = ({ products, productId, setOpenModal, reload, setReload })
 
     return (
         <div>
-            <input type="checkbox" id="my-modal-6" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
+            <input type="checkbox" id="my-modal-6" className="modal-toggle" />
+            <div className="modal modal-bottom sm:modal-middle">
 
-                <div class="modal-box">
+                <div className="modal-box">
                     <div className='flex justify-end mb-2 '>
                         <label onClick={handleClose} htmlFor="my-modal-6" ><AiFillCloseCircle className='text-4xl cursor-pointer text-red-500' /></label>
                     </div>
@@ -62,8 +62,8 @@ const UpdateProduct = ({ products, productId, setOpenModal, reload, setReload })
                         <label className='mt-2 text-base-300' htmlFor="price">Price</label>
                         <input className='text-left py-1 pl-2 text-sm rounded border border-primary w-full' type="number" name='price' defaultValue={price} ref={getPrice} />
                     </div>
-                    <div class="modal-action">
-                        <label onClick={handleSubmitData} for="my-modal-6" class="bg-primary text-base-100 text-center py-2 w-full md:w-1/3 rounded"> Submit</label>
+                    <div className="modal-action">
+                        <label onClick={handleSubmitData} for="my-modal-6" className="bg-primary text-base-100 text-center py-2 w-full md:w-1/3 rounded"> Submit</label>
                     </div>
                 </div>
             </div>

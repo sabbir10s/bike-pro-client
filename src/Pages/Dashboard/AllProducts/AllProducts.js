@@ -25,7 +25,6 @@ const AllProducts = () => {
 
     // Triggered when the value gets updated while scrolling the slider:
     const handleInput = (e) => {
-        console.log(e.target.value);
         setQuantity(e.target.value);
     }
 
@@ -36,8 +35,8 @@ const AllProducts = () => {
 
     return (
         <div>
-            <h1 className='text-xl font-medium text-left p-3 md:p-5'>All Products</h1>
-            <div className='bg-base-100 rounded-lg p-5 md:mx-5 relative'>
+            <h1 className='text-xl font-medium text-left pt-5 pb-5 md:pt-0'>All Products</h1>
+            <div className='bg-base-100 rounded-lg p-5 relative'>
                 <div className='grid md:grid-cols-2 gap-10 items-center'>
                     <input value={searchText} onChange={onChange} className='w-full border border-primary py-1 pl-5 rounded-full' autoComplete='off' type="text" name='search' placeholder='Search' />
 

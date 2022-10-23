@@ -56,8 +56,8 @@ const MyProduct = () => {
                 myProducts.length === 0 ? <div className='h-screen flex justify-center items-center'><h1 className='text-center text-4xl text-gray-400'>No product found yet!</h1></div>
                     :
                     <div>
-                        <h1 className='text-xl font-medium text-left p-3 md:p-5'>My Product List</h1>
-                        <div className='bg-base-100 rounded-lg p-5 md:mx-5'>
+                        <h1 className='text-xl font-medium text-left pt-5 pb-5 md:pt-0'>My Product List</h1>
+                        <div className='bg-base-100 rounded-lg p-5'>
                             <div className='grid grid-cols-4 gap-5'>
                                 {
                                     myProducts.map(product => <div className='border border-primary rounded-lg shadow-md p-5 hover:shadow-primary cursor-pointer'>

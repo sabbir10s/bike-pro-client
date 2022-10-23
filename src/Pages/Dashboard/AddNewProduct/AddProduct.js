@@ -59,8 +59,8 @@ const AddProduct = () => {
     }
     return (
         <div>
-            <h1 className='text-xl font-medium text-left p-3 md:p-5'>Add New Product</h1>
-            <div className='bg-base-100 rounded-t-lg h-[85vh] md:mx-5'>
+            <h1 className='text-xl font-medium text-left pt-5 pb-5 md:pt-0'>Add New Product</h1>
+            <div className='bg-base-100 rounded-t-lg h-[85vh]'>
                 <div className='p-10 lg:w-1/2'>
                     <ToastContainer />
                     <form onSubmit={handleUpload}>
