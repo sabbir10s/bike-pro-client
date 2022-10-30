@@ -9,18 +9,16 @@ const UpdateProduct = ({ products, productId, setOpenModal, reload, setReload })
     const getSupplier = useRef()
     const getQuantity = useRef()
     const getPrice = useRef()
-    const getPicture = useRef()
     const handleSubmitData = event => {
         event.preventDefault();
         console.log("handle", _id);
         const product_name = getName.current.value;
         const supplier = getSupplier.current.value;
-        const quantity = getQuantity.current.value
-        const price = getPrice.current.value
-        const picture = getPicture.current.value
-        const product = { product_name, supplier, quantity, price, picture }
+        const quantity = parseInt(getQuantity.current.value)
+        const price = parseInt(getPrice.current.value)
+        const product = { product_name, supplier, quantity, price }
         console.log(product);
-        const url = `https://bike-pro-server.onrender.com/productInfo/${_id}`;
+        const url = `http://localhost:5000/productInfo/${_id}`;
         fetch(url, {
             method: "PUT",
             headers: {
@@ -63,7 +61,7 @@ const UpdateProduct = ({ products, productId, setOpenModal, reload, setReload })
                         <input className='text-left py-1 pl-2 text-sm rounded border border-primary w-full' type="number" name='price' defaultValue={price} ref={getPrice} />
                     </div>
                     <div className="modal-action">
-                        <label onClick={handleSubmitData} for="my-modal-6" className="bg-primary text-base-100 text-center py-2 w-full md:w-1/3 rounded"> Submit</label>
+                        <button onClick={handleSubmitData} className='bg-primary text-base-100 text-center py-2 w-full md:w-1/3 rounded'>Submit</button>
                     </div>
                 </div>
             </div>

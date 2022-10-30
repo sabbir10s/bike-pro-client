@@ -16,7 +16,7 @@ const UpdateStock = () => {
             .then(data => setProduct(data))
     }, [Id, reload])
 
-
+    const { product_name, picture, price, supplier, description } = product;
     const handelIncreaseQuantity = event => {
         event.preventDefault();
         const inputQuantity = event.target.quantity.value;
@@ -44,11 +44,11 @@ const UpdateStock = () => {
                     <Link to='/products'><button className='border-2 border-primary text-primary hover:text-base-100 hover:bg-primary duration-300 px-5 py-2 rounded-full mb-5 flex items-center gap-1'><span><MdArrowBackIosNew /></span> <span>Go Back</span></button></Link>
                     <div className='grid gap-5 md:grid-cols-3 '>
                         <div className=' md:col-span-1 flex justify-center items-center border-2 rounded-lg border-primary'>
-                            <img className='p-4' src={product.picture} alt="" />
+                            <img className='p-4' src={picture} alt="" />
                         </div>
                         <dir className='ml-[-35px] lg:ml-0 md:col-span-2'>
-                            <p className='text-secondary font-bold mt-2 text-4xl'>{product.product_name}</p>
-                            <p className='font-bold text-3xl my-2 text-primary'>${product.price}</p>
+                            <p className='text-secondary font-bold mt-2 text-4xl'>{product_name}</p>
+                            <p className='font-bold text-3xl my-2 text-primary'>${price}</p>
                             <div className='flex flex-col md:flex-row gap-4 my-5'>
                                 <div className='border p-3 w-full shadow-lg'>
                                     <div><span className='text-gray-500'>Product Quantity-</span> <span className='text-primary font-bold text-xl'>{product.quantity}</span></div>
@@ -63,8 +63,8 @@ const UpdateStock = () => {
                                 </div>
                             </div>
                             <div>
-                                <p>Supplier - {product.supplier}</p>
-                                <p className='text-justify text-gray-500'> <span className='font-bold'>Description:</span> {product.description}</p>
+                                <p>Supplier - {supplier}</p>
+                                <p className='text-justify text-gray-500'> <span className='font-bold'>Description:</span> {description}</p>
                             </div>
                         </dir>
                     </div>

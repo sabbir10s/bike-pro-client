@@ -11,6 +11,7 @@ import { PieChart, Pie, Tooltip, Cell } from "recharts";
 
 const Home = () => {
     const [products] = useProducts([])
+
     const [deliver, setDeliver] = useState([])
     useEffect(() => {
         fetch('https://bike-pro-server.onrender.com/deliver')
@@ -18,9 +19,13 @@ const Home = () => {
             .then(data => setDeliver(data))
     }, [])
 
+    if (products.length === 0) {
+        return <Loading />
+    }
+
     console.log(deliver);
 
-    const productQuantity = products.map((p) => p.quantity)
+    const productQuantity = products.map((p) => parseInt(p.quantity))
     const deliverQuantity = deliver.map((d) => parseInt(d.deliveredQuantity))
 
     const itemsQuantity = (item) => {
@@ -35,14 +40,12 @@ const Home = () => {
     }
 
     const items = []
-    const name = products.map(({ product_name, quantity }) => items.push({ name: product_name, value: quantity }))
-    console.log(deliver);
+    const name = products.map(({ product_name, quantity }) => items.push({ name: product_name, value: parseInt(quantity) }))
+    console.log(items);
 
     const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#131a4f', '#4461F2', '#82CD47', '#9A1663', '#EB1AFFF', '#425F57'];
 
-    if (products.length === 0) {
-        return <Loading />
-    }
+
 
     return (
         <div className='pt-5 pb-5 md:pt-0 h-[90vh]'>

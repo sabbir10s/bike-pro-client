@@ -14,8 +14,8 @@ const AddProduct = () => {
         const email = user.email;
         const product_name = event.target.name.value;
         const supplier = event.target.supplier.value;
-        const price = event.target.price.value;
-        const quantity = event.target.quantity.value;
+        const price = parseInt(event.target.price.value);
+        const quantity = parseInt(event.target.quantity.value);
         const description = event.target.description.value;
         const imageStorageKey = '46852d765f11248a385285a8456eb942'
         const image = event.target.picture.files;
@@ -28,7 +28,6 @@ const AddProduct = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result);
                 if (result.success) {
                     const img = result.data.url;
                     const product = { email, product_name, supplier, price, quantity, picture: img, description };
