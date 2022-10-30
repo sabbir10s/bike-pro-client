@@ -14,6 +14,7 @@ import UpdateStock from './Shared/UpdateStock/UpdateStock';
 import SignIn from './Pages/Authentication/SignIn/SignIn';
 import SignUp from './Pages/Authentication/SignUp/SignUp';
 import Home from './Pages/Dashboard/Home/Home';
+import Delivered from './Pages/Delivered/Delivered';
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -54,6 +55,11 @@ function App() {
             <Route path='updateStock/:Id' element={<PrivateRoute>
               <UpdateStock />
             </PrivateRoute>} />
+            <Route path='delivered' element={<PrivateRoute>
+              <Delivered />
+            </PrivateRoute>} />
+
+
           </Route>
 
 

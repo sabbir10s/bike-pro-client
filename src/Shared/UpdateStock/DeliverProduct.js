@@ -5,11 +5,12 @@ const DeliverProduct = ({ reload, setIsReload, product, Id }) => {
 
     const handelDelivered = (e) => {
         e.preventDefault()
-        const name = e.target.name.value;
+        const clientName = e.target.name.value;
         const email = e.target.email.value;
         const address = e.target.address.value;
-        const q = e.target.quantity.value;
-        const quantity = product.quantity - q;
+        const product_name = product.product_name
+        const deliveredQuantity = e.target.quantity.value;
+        const quantity = product.quantity - deliveredQuantity;
 
         fetch(`https://bike-pro-server.onrender.com/product/${Id}`, {
             method: "PUT",
@@ -21,22 +22,22 @@ const DeliverProduct = ({ reload, setIsReload, product, Id }) => {
             .then(res => res.json())
             .then(data => {
                 setIsReload(!reload)
-                // console.log("Success", data);
                 e.target.reset()
                 toast.success('Product Delivered Successfully');
             });
 
-        fetch(`http://localhost:5000/deliver`, {
+        fetch(`https://bike-pro-server.onrender.com/deliver`, {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({ name, email, address, quantity })
+            body: JSON.stringify({ clientName, email, address, product_name, deliveredQuantity })
         })
             .then(res => res.json())
             .then(data => {
             })
     }
+
     return (
         <div>
 

@@ -18,8 +18,10 @@ const Home = () => {
             .then(data => setDeliver(data))
     }, [])
 
+    console.log(deliver);
+
     const productQuantity = products.map((p) => p.quantity)
-    const deliverQuantity = deliver.map((d) => d.quantity)
+    const deliverQuantity = deliver.map((d) => parseInt(d.deliveredQuantity))
 
     const itemsQuantity = (item) => {
         let totalQuantity = 0;
@@ -80,7 +82,7 @@ const Home = () => {
                                 <IoIosSend className='text-base-100/30 text-8xl font-bold' />
                             </div>
                         </div>
-                        <Link to='/'><div className='bg-secondary/20 hover:bg-secondary/40 duration-300 text-white  text-center py-1 flex items-center justify-center gap-1 rounded-b'> <span>More Details</span> <BsArrowRight className='text-2xl' /> </div>  </Link>
+                        <Link to='/delivered'><div className='bg-secondary/20 hover:bg-secondary/40 duration-300 text-white  text-center py-1 flex items-center justify-center gap-1 rounded-b'> <span>More Details</span> <BsArrowRight className='text-2xl' /> </div>  </Link>
                     </div>
                 </div>
             </div>
