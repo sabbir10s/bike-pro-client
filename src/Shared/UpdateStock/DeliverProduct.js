@@ -9,7 +9,7 @@ const DeliverProduct = ({ reload, setIsReload, product, Id }) => {
         const email = e.target.email.value;
         const address = e.target.address.value;
         const product_name = product.product_name
-        const deliveredQuantity = e.target.quantity.value;
+        const deliveredQuantity = parseInt(e.target.quantity.value);
         const quantity = product.quantity - deliveredQuantity;
 
         fetch(`https://bike-pro-server.onrender.com/product/${Id}`, {

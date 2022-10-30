@@ -58,21 +58,21 @@ const MyProduct = () => {
                     <div>
                         <h1 className='text-xl font-medium text-left pt-5 pb-5 md:pt-0'>My Product List</h1>
                         <div className='bg-base-100 rounded-lg p-5'>
-                            <div className='grid grid-cols-4 gap-5'>
+                            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
                                 {
-                                    myProducts.map(product => <div className='border border-primary rounded-lg shadow-md p-5 hover:shadow-primary cursor-pointer'>
+                                    myProducts.map(({ _id, picture, product_name, price, quantity }) => <div className='border border-primary rounded-lg shadow-md p-5 hover:shadow-primary cursor-pointer'>
                                         <div className='flex justify-end'>
-                                            <button onClick={() => handleDelete(product._id)} className='text-error text-xl hover:text-[#fd1e00]'>
+                                            <button onClick={() => handleDelete(_id)} className='text-error text-xl hover:text-[#fd1e00]'>
                                                 <RiDeleteBin6Line />
                                             </button>
                                         </div>
                                         <div>
-                                            <img className='w-[180px] mx-auto' src={product.picture} alt="" />
+                                            <img className='w-[180px] mx-auto' src={picture} alt="" />
 
                                         </div>
                                         <div className='mt-3'>
-                                            <p className='text-sm'>{product.product_name}</p>
-                                            <p className='text-sm'>Quantity: {product.quantity} & Price: ${product.price}</p>
+                                            <p className='text-sm'>{product_name}</p>
+                                            <p className='text-sm'>Quantity: {quantity} & Price: ${price}</p>
                                             <p ></p>
                                         </div>
                                     </div>)

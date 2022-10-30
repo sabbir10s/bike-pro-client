@@ -25,8 +25,8 @@ const Home = () => {
 
     console.log(deliver);
 
-    const productQuantity = products.map((p) => parseInt(p.quantity))
-    const deliverQuantity = deliver.map((d) => parseInt(d.deliveredQuantity))
+    const productQuantity = products.map((p) => p.quantity)
+    const deliverQuantity = deliver.map((d) => d.deliveredQuantity)
 
     const itemsQuantity = (item) => {
         let totalQuantity = 0;
@@ -40,7 +40,7 @@ const Home = () => {
     }
 
     const items = []
-    const name = products.map(({ product_name, quantity }) => items.push({ name: product_name, value: parseInt(quantity) }))
+    const name = products.map(({ product_name, quantity }) => items.push({ name: product_name, value: quantity }))
     console.log(items);
 
     const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#131a4f', '#4461F2', '#82CD47', '#9A1663', '#EB1AFFF', '#425F57'];
@@ -98,12 +98,12 @@ const Home = () => {
                     </div>
                     <div className='mt-5 grid grid-cols-1 md:grid-cols-2 gap-2'>
                         {
-                            products.slice(0, 2).map(product => <div className='border p-3 rounded shadow-sm'>
-                                <img className='w-[150px]' src={product.picture} alt="" />
+                            products.slice(0, 2).map(({ _id, picture, product_name, price, quantity }) => <div key={_id} className='border p-3 rounded shadow-sm'>
+                                <img className='w-[150px]' src={picture} alt="" />
                                 <div className='mt-2'>
-                                    <h2 className='text-lg text-primary'>{product.product_name}</h2>
-                                    <p>Quantity: {product.quantity}</p>
-                                    <p>price: {product.price}</p>
+                                    <h2 className='text-lg text-primary'>{product_name}</h2>
+                                    <p>Quantity: {quantity}</p>
+                                    <p>price: {price}</p>
                                 </div>
                             </div>)
                         }
