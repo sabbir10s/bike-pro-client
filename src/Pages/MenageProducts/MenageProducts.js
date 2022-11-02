@@ -1,7 +1,8 @@
 import React from 'react';
-import useProducts from '../../../Shared/Hooks/useProducts';
-import Loading from '../../../Shared/Loading/Loading';
+import useProducts from '../../Shared/Hooks/useProducts';
+import Loading from '../../Shared/Loading/Loading';
 import ProductsRow from './ProductsRow';
+
 const MenageProducts = () => {
     const [products, setProducts, reload, setReload] = useProducts([]);
     return (
@@ -10,7 +11,7 @@ const MenageProducts = () => {
 
             <div>
                 {
-                    products.length === 0 ? <Loading></Loading>
+                    products.length === 0 ? <Loading />
                         :
                         <div className="bg-base-100 rounded-t-lg p-5 flex justify-center">
                             <div>

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
-import auth from '../../../firebase.init';
 import { BsImageFill } from 'react-icons/bs';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const AddProduct = () => {
     const [user] = useAuthState(auth);

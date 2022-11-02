@@ -1,9 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
-import useProducts from '../../../Shared/Hooks/useProducts';
-import Loading from '../../../Shared/Loading/Loading';
 import ProductCart from './ProductCart';
 import './All Products.css'
+import useProducts from '../../Shared/Hooks/useProducts';
+import Loading from '../../Shared/Loading/Loading';
+
 const AllProducts = () => {
     const [products] = useProducts([]);
     const [searchText, setSearchText] = useState("")

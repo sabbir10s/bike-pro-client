@@ -1,13 +1,13 @@
 import React from 'react';
-import useProducts from '../../../Shared/Hooks/useProducts';
 import { BsBagCheck, BsArrowRight } from 'react-icons/bs';
 import { GoGraph } from 'react-icons/go';
 import { IoIosSend } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import Loading from '../../../Shared/Loading/Loading';
 import { PieChart, Pie, Tooltip, Cell } from "recharts";
+import useProducts from '../../Shared/Hooks/useProducts';
+import Loading from '../../Shared/Loading/Loading';
 
 const Home = () => {
     const [products] = useProducts([])

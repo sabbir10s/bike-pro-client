@@ -6,15 +6,15 @@ import NotFond from './Shared/NotFound/NotFond';
 import PrivateRoute from './Shared/PrivateRoute/PrivateRoute';
 import { ToastContainer } from 'react-toastify';
 import Dashboard from './Pages/Dashboard/Dashboard';
-import AllProducts from './Pages/Dashboard/AllProducts/AllProducts';
-import MenageProducts from './Pages/Dashboard/MenageProducts/MenageProducts';
-import AddProduct from './Pages/Dashboard/AddNewProduct/AddProduct';
-import MyProduct from './Pages/Dashboard/MyProduct/MyProduct';
+import MenageProducts from './Pages/MenageProducts/MenageProducts';
+import AddProduct from './Pages/AddNewProduct/AddProduct';
+import MyProduct from './Pages/MyProduct/MyProduct';
 import UpdateStock from './Shared/UpdateStock/UpdateStock';
 import SignIn from './Pages/Authentication/SignIn/SignIn';
 import SignUp from './Pages/Authentication/SignUp/SignUp';
-import Home from './Pages/Dashboard/Home/Home';
+import Home from './Pages/Home/Home';
 import Delivered from './Pages/Delivered/Delivered';
+import AllProducts from './Pages/AllProducts/AllProducts';
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
